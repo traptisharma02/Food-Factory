@@ -13,6 +13,26 @@ $(document).ready(function() {
     });
     
     
+    mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+    
     /* Scroll on buttons */
     $('.js--scroll-to-plans').click(function () {
        $('html, body').animate({scrollTop: $('.js--section-plans').offset().top}, 1000); 
@@ -38,9 +58,8 @@ $(document).ready(function() {
         }
       });
     });
-    
-    
     /* Animations on scroll */
+    
     $('.js--wp-1').waypoint(function(direction) {
         $('.js--wp-1').addClass('animated fadeIn');
     }, {
@@ -65,20 +84,18 @@ $(document).ready(function() {
         offset: '50%'
     });
     
-    
-    /* Mobile navigation */
-    $('.js--nav-icon').click(function() {
-        var nav = $('.js--main-nav');
-        var icon = $('.js--nav-icon i');
-        
+     /* Mobile nav */
+    $('.js--nav-icon').click(function () {
+        var nav=$('.js--main-nav');
+        var icon=$('.js--nav-icon i');
         nav.slideToggle(200);
-        
-        if (icon.hasClass('ion-navicon-round')) {
+        if(icon.hasClass('ion-navicon-round')){
             icon.addClass('ion-close-round');
             icon.removeClass('ion-navicon-round');
-        } else {
+        }
+        else{
             icon.addClass('ion-navicon-round');
             icon.removeClass('ion-close-round');
-        }        
+        }
     });
-});
+}); 
