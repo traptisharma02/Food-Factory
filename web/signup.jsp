@@ -50,8 +50,9 @@
                      <a href="#" class="btn btn-ghost">Sign up now</a></center></div>
             <div class="text-center w-full b2"><center>
               <span class="text2">Already a member?</span>
-              <a href="logIn.jsp" class="text2 signup">SIGN In</a></center>
+              <a href="logIn.jsp" class="text2 signup">SIGN IN</a></center>
             </div>
+             
           </form>
         </div>
       </div>

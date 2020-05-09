@@ -46,7 +46,9 @@
                         <li><a href="index.jsp#features">Food delivery</a></li>
                         <li><a href="index.jsp#works">How it works</a></li>
                         <li><a href="index.jsp#cities">Our cities</a></li>
-                        <li><a href="index.jsp#plans">Sign up</a></li>
+                        <li><a href="index.jsp#plans">Select Plan</a></li>
+                        <li><a href="signup.jsp">Sign Up</a></li>
+                        
                     </ul>
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>

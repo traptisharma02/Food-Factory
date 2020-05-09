@@ -28,6 +28,9 @@
               <span class="text2">Not a member yet?</span>
               <a href="signup.jsp" class="text2 signup">SIGN UP</a></center>
             </div>
+            <div class="text-center w-full b2"><center>
+              <a href="ALoginIn.jsp" class="text2 signup">Admin login</a></center>
+            </div>
           </form>
         </div>
       </div>

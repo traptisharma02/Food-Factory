@@ -4,18 +4,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class header_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/header.jsp");
-    _jspx_dependants.add("/footer.jsp");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -36,7 +30,7 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -47,13 +41,6 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<body style=\"margin-top: -.8%\">\n");
-      out.write("      <!-- Header -->\n");
-      out.write("      ");
       out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
       out.write("        <meta charset=\"utf-8\">\n");
@@ -104,109 +91,10 @@ public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <li><a href=\"index.jsp#cities\">Our cities</a></li>\n");
       out.write("                        <li><a href=\"index.jsp#plans\">Select Plan</a></li>\n");
       out.write("                        <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
-      out.write("                        \n");
       out.write("                    </ul>\n");
       out.write("                    <a class=\"mobile-nav-icon js--nav-icon\"><i class=\"ion-navicon-round\"></i></a>\n");
       out.write("                </div>\n");
       out.write("            </nav>");
-      out.write("\n");
-      out.write("      <!-- Header-->\n");
-      out.write("\n");
-      out.write("    <div class=\"limiter\" >\n");
-      out.write("      <div  class=\"container-login\"  >\n");
-      out.write("        <div class=\"wrap-login\" >\n");
-      out.write("          <div class=\"text-center\">\n");
-      out.write("            <div class=\"container\">\n");
-      out.write("                <h2 style=\"margin-top: -5%;\">Sign Up</h2>\n");
-      out.write("          </div>\n");
-      out.write("          <form action=\"#\" class=\"login-form\">\n");
-      out.write("\n");
-      out.write("            <div class=\"my-2 ml-2\"><span>Name</span></div>\n");
-      out.write("            <div class=\"wrap-input\">\n");
-      out.write("              <input type=\"text\" name=\"username\" class=\"inputcustom\" />\n");
-      out.write("            </div>\n");
-      out.write("             <div class=\"my-2 ml-2\">\n");
-      out.write("              <span>Contact-No.</span>  \n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"wrap-input\">\n");
-      out.write("              <input type=\"text\" name=\"contact\" class=\"inputcustom\" />\n");
-      out.write("            </div>\n");
-      out.write("             <div class=\"my-2 ml-2\">\n");
-      out.write("              <span>Email-Id</span>  \n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"wrap-input\">\n");
-      out.write("              <input type=\"email\" name=\"email\" class=\"inputcustom\" />\n");
-      out.write("            </div>\n");
-      out.write("             <div class=\"my-2 ml-2\"><span>Password</span></div>\n");
-      out.write("            <div class=\"wrap-input\">\n");
-      out.write("                <input type=\"password\" name=\"password\" class=\"inputcustom\" />\n");
-      out.write("            </div>\n");
-      out.write("             <div class=\"my-2 ml-2\">\n");
-      out.write("              <span>Confirm Password</span>  \n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"wrap-input\">\n");
-      out.write("              <input type=\"password\" name=\"confirm-password\" class=\"inputcustom\" />\n");
-      out.write("            </div>\n");
-      out.write("             <div class=\"text-center w-full b1\"><br><center>\n");
-      out.write("                     <a href=\"#\" class=\"btn btn-ghost\">Sign up now</a></center></div>\n");
-      out.write("            <div class=\"text-center w-full b2\"><center>\n");
-      out.write("              <span class=\"text2\">Already a member?</span>\n");
-      out.write("              <a href=\"logIn.jsp\" class=\"text2 signup\">SIGN In</a></center>\n");
-      out.write("            </div>\n");
-      out.write("          </form>\n");
-      out.write("        </div>\n");
-      out.write("      </div>\n");
-      out.write("    </div>\n");
-      out.write("    </div>\n");
-      out.write("        <!-- Footer -->\n");
-      out.write(" ");
-      out.write("     <footer>\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <div class=\"col span-1-of-2\">\n");
-      out.write("                    <ul class=\"footer-nav\">\n");
-      out.write("                        <li><a href=\"index.jsp#contact\">Contact us</a></li>\n");
-      out.write("                        <li><a href=\"index.jsp#features\">About us</a></li>\n");
-      out.write("                        <li><a href=\"index.jsp#blog\">Blog</a></li>\n");
-      out.write("                        <li><a href=\"index.jsp#pic\">Images</a></li>\n");
-      out.write("                    </ul>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"col span-1-of-2\">\n");
-      out.write("                    <ul class=\"social-links\">\n");
-      out.write("                        <li><a href=\"#\"><i class=\"ion-social-facebook\"></i></a></li>\n");
-      out.write("                        <li><a href=\"#\"><i class=\"ion-social-twitter\"></i></a></li>\n");
-      out.write("                        <li><a href=\"#\"><i class=\"ion-social-googleplus\"></i></a></li>\n");
-      out.write("                        <li><a href=\"#\"><i class=\"ion-social-instagram\"></i></a></li>\n");
-      out.write("                    </ul>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"row\">\n");
-      out.write("                <p>\n");
-      out.write("                    Copyright &copy; 2019 by food factory. All rights reserved.\n");
-      out.write("                </p>\n");
-      out.write("            </div>\n");
-      out.write("        </footer>\n");
-      out.write("        \n");
-      out.write("    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\n");
-      out.write("    <script src=\"//cdn.jsdelivr.net/respond/1.4.2/respond.min.js\"></script>\n");
-      out.write("    <script src=\"//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js\"></script>\n");
-      out.write("    <script src=\"//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js\"></script>\n");
-      out.write("    <script src=\"vendors/js/jquery.waypoints.min.js\"></script>\n");
-      out.write("    <script src=\"resources/js/script.js\"></script>\n");
-      out.write("    \n");
-      out.write("    <script>\n");
-      out.write("      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n");
-      out.write("      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n");
-      out.write("      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n");
-      out.write("      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n");
-      out.write("\n");
-      out.write("      ga('create', 'UA-61026110-2', 'auto');\n");
-      out.write("      ga('send', 'pageview');\n");
-      out.write("\n");
-      out.write("    </script>\n");
-      out.write("    \n");
-      out.write("    </body>  \n");
-      out.write("    \n");
-      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

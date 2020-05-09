@@ -9,8 +9,8 @@
  <%@include file="header2.jsp" %>
             <div class="hero-text-box">
                 <h1>WELCOME<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trapti</h1>
-                <a class="btn btn-full js--scroll-to-plans" href="#">I'm hungry</a>
-                <a class="btn btn-ghost js--scroll-to-start" href="#">Show me more</a>
+                <a class="btn btn-full js--scroll-to-plans" href="#">New Plans</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#">Your Plan</a>
             </div>
             
 </header>
@@ -138,4 +138,4 @@
         
    
           <!-- Footer Links -->
-<%@include file="footer.jsp" %>
+<%@include file="../footer.jsp" %>

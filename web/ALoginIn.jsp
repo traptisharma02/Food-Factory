@@ -8,7 +8,7 @@
         <div class="wrap-login logwrap" style="margin-top: -7%;">
           <div class="text-center">
            <div class="container">
-                <h2 style="margin-top: -1%;">Sign In</h2>
+                <h2 style="margin-top: -1%;">Admin Sign In</h2>
           </div>
           <form action="#" class="login-form">
             <div class="my-2 ml-2"><span>Username</span></div>
@@ -29,7 +29,7 @@
               <a href="signup.jsp" class="text2 signup">SIGN UP</a></center>
             </div>
             <div class="text-center w-full b2"><center>
-              <a href="ALoginIn.jsp" class="text2 signup">Admin login</a></center>
+              <a href="logIn.jsp" class="text2 signup">Customer login</a></center>
             </div>
           </form>
         </div>

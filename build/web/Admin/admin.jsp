@@ -9,8 +9,8 @@
  <%@include file="header3.jsp" %>
             <div class="hero-text-box">
                 <h1>WELCOME<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Admin</h1>
-                <a class="btn btn-full js--scroll-to-plans" href="#">I'm hungry</a>
-                <a class="btn btn-ghost js--scroll-to-start" href="#">Show me more</a>
+                <a class="btn btn-full js--scroll-to-plans" href="#planChg">Change plan</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#todayM">Add Today's Meal</a>
             </div>
             
 </header>
@@ -92,7 +92,63 @@
                 
             </div>
         </section>
-        
+         <section class="section-steps" id="todayM">
+            <div class="row">
+                <h2>Add Today's Meal</h2>
+            </div>
+           <form method="post" action="#" class="contact-form">
+                    <div class="row">
+                        <center> 
+                       <div class="col span-3-of-3" >
+                                             <script>
+                                     var loadFile = function(event) {
+                                             var image = document.getElementById('output');
+                                             image.src = URL.createObjectURL(event.target.files[0]);
+                                     };
+                                     </script>
+                                     <div class="container">
+                             <p><img id="output" width="200" src="../resources/img/upload.png" /></p>
+                              <input type="file" class="inputcustom " accept="image/*" id="file" onchange="loadFile(event)" oninput="this.className = ''" name="image"  style="width: 35%">
+
+                                             
+                                            <script>
+                                                                   var loadFile = function(event) {
+                                                                       var image = document.getElementById('output');
+                                                                       image.src = URL.createObjectURL(event.target.files[0]);
+                                                                   };
+                                            </script>
+                                     </div></div>
+                        </center>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="i1">Item 1</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="i1" id="i1" placeholder="Enter Item 1 name">
+                        </div>
+                    </div>
+                         <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="i2">Item 2</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="i2" id="i2" placeholder="Enter Item 2 name">
+                        </div>
+                    </div>
+                <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="i3">Item 3</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="i3" id="i3" placeholder="Enter Item 3 name">
+                        </div>
+                    </div>
+                    </div>
+                         <div class="text-center w-full "><br><center>
+                     <a href="#" class="btn btn-ghost">Add Meal</a></center></div>
+                </form>
+        </section>
    
           <!-- Footer Links -->
-<%@include file="footer.jsp" %>
+<%@include file="../footer.jsp" %>
