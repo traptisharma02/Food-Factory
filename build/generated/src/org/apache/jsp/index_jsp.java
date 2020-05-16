@@ -3,6 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import DB.DBConnection;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,6 +54,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write(" ");
       out.write("<html lang=\"en\">\n");
@@ -88,7 +97,52 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"msapplication-TileImage\" content=\"/resources/favicons/mstile-144x144.png\">\n");
       out.write("        <meta name=\"msapplication-config\" content=\"/resources/favicons/browserconfig.xml\">\n");
       out.write("        <meta name=\"theme-color\" content=\"#ffffff\">\n");
-      out.write("        \n");
+      out.write("        <script>\n");
+      out.write("                    function validate(){\n");
+      out.write("                    var pass=document.f1.password.value;\n");
+      out.write("                    var pass1=document.f1.confirmPassword.value;\n");
+      out.write("                    var num=document.f1.contact.value;\n");
+      out.write("                    var first=num.charAt(0);\n");
+      out.write("                    var status=false;\n");
+      out.write("                    setTimeout(function()\n");
+      out.write("                    {\n");
+      out.write("                    if (pass.length<6) \n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter 6 digit password\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    if(pass1!=pass)\n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter same password\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    if(isNaN(num) || num.length<10 && num.length>=0) \n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter valid number\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("\n");
+      out.write("                    else if(!(first==\"7\" || first==\"8\" || first==\"9\"))\n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter valid number\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    return status;\n");
+      out.write("                    },1);\n");
+      out.write("                    \n");
+      out.write("                 \n");
+      out.write("                    }\n");
+      out.write("\n");
+      out.write("</script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <header>\n");
@@ -309,25 +363,38 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"row\">\n");
       out.write("                <h2>Our customers can't live without us</h2>\n");
       out.write("            </div>\n");
+      out.write("            \n");
       out.write("            <div class=\"row\">\n");
+      out.write("                ");
+
+                    Connection con=DBConnection.getConnection();
+             try{
+                    PreparedStatement ps=con.prepareStatement("select * from feedback limit 3");
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                
+      out.write("\n");
       out.write("                <div class=\"col span-1-of-3\">\n");
       out.write("                    <blockquote>\n");
-      out.write("                        Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!\n");
-      out.write("                        <cite><img src=\"resources/img/customer-1.jpg\" alt=\"Customer 1 photo\">Alberto Duncan</cite>\n");
+      out.write("                        ");
+      out.print(rs.getString("msg") );
+      out.write("\n");
+      out.write("                        <cite><img src=\"images/");
+      out.print(rs.getString("image") );
+      out.write("\" alt=\"Customer 1 photo\">");
+      out.print(rs.getString("name") );
+      out.write("</cite>\n");
       out.write("                    </blockquote>\n");
       out.write("                </div>\n");
-      out.write("                <div class=\"col span-1-of-3\">\n");
-      out.write("                    <blockquote>\n");
-      out.write("                       Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!\n");
-      out.write("                        <cite><img src=\"resources/img/customer-2.jpg\" alt=\"Customer 2 photo\">Joana Silva</cite>\n");
-      out.write("                    </blockquote>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"col span-1-of-3\">\n");
-      out.write("                    <blockquote>\n");
-      out.write("I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!\n");
-      out.write("                    <cite><img src=\"resources/img/customer-3.jpg\" alt=\"Customer 3 photo\">Milton Chapman</cite>\n");
-      out.write("                    </blockquote>\n");
-      out.write("                </div>\n");
+      out.write("             \n");
+      out.write("                 ");
+
+                        }
+                        
+                        }catch(Exception e){e.printStackTrace();}
+
+                    
+      out.write("\n");
       out.write("            </div>\n");
       out.write("        </section>\n");
       out.write("        \n");
@@ -337,67 +404,71 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <h2>Start eating healthy today</h2>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"row\">\n");
+      out.write("                ");
+
+             
+             try{
+                    PreparedStatement ps=con.prepareStatement("select * from meal");
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                
+      out.write("\n");
       out.write("                <div class=\"col span-1-of-3\">\n");
       out.write("                    <div class=\"plan-box js--wp-4\">\n");
       out.write("                        <div>\n");
-      out.write("                            <h3>Premium</h3>\n");
-      out.write("                            <p class=\"plan-price\">$399 <span>/ month</span></p>\n");
-      out.write("                            <p class=\"plan-price-meal\">That's only 13.30$ per meal</p>\n");
+      out.write("                            <h3>");
+      out.print(rs.getString("category") );
+      out.write("</h3>\n");
+      out.write("                            <p class=\"plan-price\">$");
+      out.print(rs.getString("price") );
+      out.write("<span>");
+      out.print(rs.getString("validity") );
+      out.write("</span></p>\n");
+      out.write("                            ");
+
+                                int oneP=0;
+                                if(rs.getString("inter").equals("1"))
+                                    oneP=(Integer.parseInt(rs.getString("price")));
+                                else if(rs.getString("inter").equals("3"))
+                                    oneP=(Integer.parseInt(rs.getString("price")))/3;
+                                else
+                                    oneP=(Integer.parseInt(rs.getString("price")))/30;
+                            
+      out.write("\n");
+      out.write("                            <p class=\"plan-price-meal\">That's only ");
+      out.print( oneP);
+      out.write(" per meal</p>\n");
       out.write("                        </div>\n");
       out.write("                        <div>\n");
       out.write("                            <ul>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>1 meal every day</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Order 24/7</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Access to newest creations</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Free delivery</li>\n");
+      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Total ");
+      out.print(rs.getString("inter") );
+      out.write(" meal</li>\n");
+      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>");
+      out.print(rs.getString("orderTiming") );
+      out.write("</li>\n");
+      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>");
+      out.print(rs.getString("accessNew") );
+      out.write("</li>\n");
+      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>");
+      out.print(rs.getString("freeDelivery") );
+      out.write("</li>\n");
       out.write("                            </ul>\n");
       out.write("                        </div>\n");
       out.write("                        <div>\n");
-      out.write("                            <a href=\"signup.jsp\" class=\"btn btn-full\">Sign up now</a>\n");
+      out.write("                            <a href=\"customer/welcome.jsp#plans\" class=\"btn btn-ghost\">Select</a>\n");
       out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"col span-1-of-3\">\n");
-      out.write("                    <div class=\"plan-box\">\n");
-      out.write("                        <div>\n");
-      out.write("                            <h3>Pro</h3>\n");
-      out.write("                            <p class=\"plan-price\">$149 <span>/ month</span></p>\n");
-      out.write("                            <p class=\"plan-price-meal\">That's only 14.90$ per meal</p>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div>\n");
-      out.write("                            <ul>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>1 meal 10 days/month</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Order 24/7</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Access to newest creations</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Free delivery</li>\n");
-      out.write("                            </ul>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div>\n");
-      out.write("                            <a href=\"signup.jsp\" class=\"btn btn-ghost\">Sign up now</a>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"col span-1-of-3\">\n");
-      out.write("                    <div class=\"plan-box\">\n");
-      out.write("                        <div>\n");
-      out.write("                            <h3>Starter</h3>\n");
-      out.write("                            <p class=\"plan-price\">19$ <span>/ meal</span></p>\n");
-      out.write("                            <p class=\"plan-price-meal\">&nbsp;</p>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div>\n");
-      out.write("                            <ul>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>1 meal</li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Order from 8 am to 12 pm</li>\n");
-      out.write("                                <li><i class=\"ion-ios-close-empty icon-small\"></i></li>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Free delivery</li>\n");
-      out.write("                            </ul>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div>\n");
-      out.write("                            <a href=\"signup.jsp\" class=\"btn btn-ghost\">Sign up now</a>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
+      out.write("                     </div>\n");
+      out.write("               \n");
+      out.write("                            </div>\n");
+      out.write("                    ");
+
+                        }
+                        con.close();
+                        }catch(Exception e){e.printStackTrace();}
+                    
+      out.write("\n");
+      out.write("               \n");
       out.write("        </section>\n");
       out.write("        \n");
       out.write("        <section class=\"section-form\" id=\"contact\">\n");
@@ -405,13 +476,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <h2>We're happy to hear from you</h2>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"row\">\n");
-      out.write("                <form method=\"post\" action=\"#\" class=\"contact-form\">\n");
+      out.write("                <form method=\"post\" action=\"NewsLetServlet\" class=\"contact-form\">\n");
       out.write("                    <div class=\"row\">\n");
       out.write("                        <div class=\"col span-1-of-3\">\n");
       out.write("                            <label for=\"name\">Name</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Your name\" required>\n");
+      out.write("                            <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Your name\" required=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -419,7 +490,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"email\">Email</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"email\" name=\"email\" id=\"email\" placeholder=\"Your email\" required>\n");
+      out.write("                            <input type=\"email\" name=\"email\" id=\"email\" placeholder=\"Your email\" required=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -427,7 +498,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"find-us\">How did you find us?</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <select name=\"find-us\" id=\"find-us\">\n");
+      out.write("                            <select name=\"find-us\" id=\"find-us\" required=\"\">\n");
       out.write("                                <option value=\"friends\" selected>Friends</option>\n");
       out.write("                                <option value=\"search\">Search engine</option>\n");
       out.write("                                <option value=\"ad\">Advertisement</option>\n");
@@ -440,15 +511,16 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label>Newsletter?</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"checkbox\" name=\"news\" id=\"news\" checked> Yes, please\n");
+      out.write("                            <input type=\"checkbox\" name=\"news\" id=\"news\" value=\"yes\" checked> Yes, please\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
+      out.write("                    \n");
       out.write("                    <div class=\"row\">\n");
       out.write("                        <div class=\"col span-1-of-3\">\n");
       out.write("                            <label>Drop us a line</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <textarea name=\"message\" placeholder=\"Your message\"></textarea>\n");
+      out.write("                            <textarea name=\"message\" placeholder=\"Your message\" required=\"\"></textarea>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -483,6 +555,21 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-twitter\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-googleplus\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-instagram\"></i></a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("          <div class=\"row\">\n");
+      out.write("                <div class=\"col span-1-of-2 cont\">\n");
+      out.write("                    \n");
+      out.write("                        <h3 class=\"text-uppercase font-weight-bold\">Contact</h3>\n");
+      out.write("                        <ul class=\"contUL\">\n");
+      out.write("                            <li>\n");
+      out.write("                                <i class=\"fas fa-home mr-3\"></i> New York, NY 10012, US</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-envelope mr-3\"></i> info@example.com</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-phone mr-3\"></i> + 01 234 567 88</li><br>\n");
+      out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");

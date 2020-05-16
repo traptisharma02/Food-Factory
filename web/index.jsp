@@ -4,6 +4,11 @@
     Author     : DELL
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="DB.DBConnection"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
  <%@include file="header.jsp" %>
@@ -208,25 +213,28 @@
             <div class="row">
                 <h2>Our customers can't live without us</h2>
             </div>
+            
             <div class="row">
+                <%
+                    Connection con=DBConnection.getConnection();
+             try{
+                    PreparedStatement ps=con.prepareStatement("select * from feedback limit 3");
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                %>
                 <div class="col span-1-of-3">
                     <blockquote>
-                        Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
-                        <cite><img src="resources/img/customer-1.jpg" alt="Customer 1 photo">Alberto Duncan</cite>
+                        <%=rs.getString("msg") %>
+                        <cite><img src="images/<%=rs.getString("image") %>" alt="Customer 1 photo"><%=rs.getString("name") %></cite>
                     </blockquote>
                 </div>
-                <div class="col span-1-of-3">
-                    <blockquote>
-                       Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
-                        <cite><img src="resources/img/customer-2.jpg" alt="Customer 2 photo">Joana Silva</cite>
-                    </blockquote>
-                </div>
-                <div class="col span-1-of-3">
-                    <blockquote>
-I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
-                    <cite><img src="resources/img/customer-3.jpg" alt="Customer 3 photo">Milton Chapman</cite>
-                    </blockquote>
-                </div>
+             
+                 <%
+                        }
+                        
+                        }catch(Exception e){e.printStackTrace();}
+
+                    %>
             </div>
         </section>
         
@@ -236,67 +244,49 @@ I was looking for a quick and easy food delivery service in San Franciso. I trie
                 <h2>Start eating healthy today</h2>
             </div>
             <div class="row">
+                <%
+             
+             try{
+                    PreparedStatement ps=con.prepareStatement("select * from meal");
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                %>
                 <div class="col span-1-of-3">
                     <div class="plan-box js--wp-4">
                         <div>
-                            <h3>Premium</h3>
-                            <p class="plan-price">$399 <span>/ month</span></p>
-                            <p class="plan-price-meal">That's only 13.30$ per meal</p>
+                            <h3><%=rs.getString("category") %></h3>
+                            <p class="plan-price">$<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
+                            <%
+                                int oneP=0;
+                                if(rs.getString("inter").equals("1"))
+                                    oneP=(Integer.parseInt(rs.getString("price")));
+                                else if(rs.getString("inter").equals("3"))
+                                    oneP=(Integer.parseInt(rs.getString("price")))/3;
+                                else
+                                    oneP=(Integer.parseInt(rs.getString("price")))/30;
+                            %>
+                            <p class="plan-price-meal">That's only <%= oneP%> per meal</p>
                         </div>
                         <div>
                             <ul>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal every day</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Total <%=rs.getString("inter") %> meal</li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i><%=rs.getString("orderTiming") %></li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i><%=rs.getString("accessNew") %></li>
+                                <li><i class="ion-ios-checkmark-empty icon-small"></i><%=rs.getString("freeDelivery") %></li>
                             </ul>
                         </div>
                         <div>
-                            <a href="signup.jsp" class="btn btn-full">Sign up now</a>
+                            <a href="customer/welcome.jsp#plans" class="btn btn-ghost">Select</a>
                         </div>
-                    </div>
-                </div>
-                <div class="col span-1-of-3">
-                    <div class="plan-box">
-                        <div>
-                            <h3>Pro</h3>
-                            <p class="plan-price">$149 <span>/ month</span></p>
-                            <p class="plan-price-meal">That's only 14.90$ per meal</p>
-                        </div>
-                        <div>
-                            <ul>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal 10 days/month</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order 24/7</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Access to newest creations</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="signup.jsp" class="btn btn-ghost">Sign up now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col span-1-of-3">
-                    <div class="plan-box">
-                        <div>
-                            <h3>Starter</h3>
-                            <p class="plan-price">19$ <span>/ meal</span></p>
-                            <p class="plan-price-meal">&nbsp;</p>
-                        </div>
-                        <div>
-                            <ul>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>1 meal</li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Order from 8 am to 12 pm</li>
-                                <li><i class="ion-ios-close-empty icon-small"></i></li>
-                                <li><i class="ion-ios-checkmark-empty icon-small"></i>Free delivery</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="signup.jsp" class="btn btn-ghost">Sign up now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                     </div>
+               
+                            </div>
+                    <%
+                        }
+                        con.close();
+                        }catch(Exception e){e.printStackTrace();}
+                    %>
+               
         </section>
         
         <section class="section-form" id="contact">
@@ -304,13 +294,13 @@ I was looking for a quick and easy food delivery service in San Franciso. I trie
                 <h2>We're happy to hear from you</h2>
             </div>
             <div class="row">
-                <form method="post" action="#" class="contact-form">
+                <form method="post" action="NewsLetServlet" class="contact-form">
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="name">Name</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                            <input type="text" name="name" id="name" placeholder="Your name" required="">
                         </div>
                     </div>
                     <div class="row">
@@ -318,7 +308,7 @@ I was looking for a quick and easy food delivery service in San Franciso. I trie
                             <label for="email">Email</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                            <input type="email" name="email" id="email" placeholder="Your email" required="">
                         </div>
                     </div>
                     <div class="row">
@@ -326,7 +316,7 @@ I was looking for a quick and easy food delivery service in San Franciso. I trie
                             <label for="find-us">How did you find us?</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <select name="find-us" id="find-us">
+                            <select name="find-us" id="find-us" required="">
                                 <option value="friends" selected>Friends</option>
                                 <option value="search">Search engine</option>
                                 <option value="ad">Advertisement</option>
@@ -339,15 +329,16 @@ I was looking for a quick and easy food delivery service in San Franciso. I trie
                             <label>Newsletter?</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="checkbox" name="news" id="news" checked> Yes, please
+                            <input type="checkbox" name="news" id="news" value="yes" checked> Yes, please
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label>Drop us a line</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <textarea name="message" placeholder="Your message"></textarea>
+                            <textarea name="message" placeholder="Your message" required=""></textarea>
                         </div>
                     </div>
                     <div class="row">

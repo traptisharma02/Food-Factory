@@ -40,12 +40,14 @@
         <header>
             <nav>
                 <div class="row">
-                    <a href="..index.jsp"> <img src="../resources/img/logo-white.png" alt="Omnifood logo" class="logo">
+                    <a href="welcome.jsp"> <img src="../resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="../resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>
                     <ul class="main-nav js--main-nav">
                         <li><a href="welcome.jsp#plans">Select new plan</a></li>
-                        <li><a href="#uPlan">Plans you selected</a></li>
-                         <li><a href="../index.jsp">logout</a></li>
+                        <li><a href="welcome.jsp#todayM">Today's meal</a></li>
+                         <li><a href="welcome.jsp#Uplan">Plans you selected</a></li>
+                          <li><a href="feedback.jsp">Feedback</a></li>
+                         <li><a href="../LogoutServlet">logout</a></li>
                     </ul>
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>

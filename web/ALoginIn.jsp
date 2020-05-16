@@ -10,20 +10,20 @@
            <div class="container">
                 <h2 style="margin-top: -1%;">Admin Sign In</h2>
           </div>
-          <form action="#" class="login-form">
+              <form action="AdminLoginServlet" class="login-form" method="post">
             <div class="my-2 ml-2"><span>Username</span></div>
             <div class="wrap-input">
-              <input type="text" name="username" class="inputcustom" />
+                <input type="text" name="contact" class="inputcustom" required=""/>
             </div>
             <div class="my-2 ml-2">
               <span>Password</span>
               <a href="changePassword.jsp" class="forgot ml3">Forgot?</a>
             </div>
             <div class="wrap-input">
-              <input type="password" name="password" class="inputcustom" />
+                <input type="password" name="password" class="inputcustom" required=""/>
             </div>
            <div class="text-center w-full b1"><br><center>
-                     <a href="#" class="btn btn-ghost">Sign in now</a></center></div>
+                     <input type="submit" value="Sign in now" class="btn btn-ghost"></center></div>
                      <div class="text-center w-full"><center>
               <span class="text2">Not a member yet?</span>
               <a href="signup.jsp" class="text2 signup">SIGN UP</a></center>

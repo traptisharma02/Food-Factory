@@ -17,6 +17,21 @@
                     </ul>
                 </div>
             </div>
+          <div class="row">
+                <div class="col span-1-of-2 cont">
+                    
+                        <h3 class="text-uppercase font-weight-bold">Contact</h3>
+                        <ul class="contUL">
+                            <li>
+                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US</li><br>
+                            <li>
+                              <i class="fas fa-envelope mr-3"></i> info@example.com</li><br>
+                            <li>
+                              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</li><br>
+
+                    </ul>
+                </div>
+            </div>
             <div class="row">
                 <p>
                     Copyright &copy; 2019 by food factory. All rights reserved.

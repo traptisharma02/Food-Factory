@@ -1,4 +1,21 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="DB.DBConnection"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
+
+<%
+    session=request.getSession(false);
+    if(session.getAttribute("contact")==null)
+    {
+       out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Pls login first');");  
+                    out.println("location='../logIn.jsp';");
+                    out.println("</script>");
+    }
+    else{ 
+     Connection con=DBConnection.getConnection();
+%>
   <%@include file="header4.jsp" %>
       <!-- Header-->
      
@@ -7,8 +24,9 @@
           <div class="wrap-login logwrap" style="margin-top: 20%;width:80%">
           <div class="text-center">
            <div class="container">
-                <h2 style="margin-top: -1%;">Approve customer payment</h2>
-          </div>
+                <h2 style="margin-top: -1%;">View customers <h3>whose payment is recieved</h3></h2>
+                
+                 </div>
               <button onclick="window.scrollTo(0, 0); " id="myBtn" title="Go to top" ><i class="ion-arrow-up-c"></i></button>
     <div class="container">
         <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
@@ -31,107 +49,35 @@
                 </tr>
             </tfoot>
             <tbody>
+                  <%
+            
+             try{
+                     PreparedStatement ps2=con.prepareStatement("delete from customer_plan where planDueDate < curdate()");
+                     
+                    PreparedStatement ps=con.prepareStatement("select user.name,user.contact_no,meal.category,meal.price from (( customer_plan join user on user.contact_no=customer_plan.contact_no) join meal on meal.category=customer_plan.plan) where user.payment_status=1;");
+                     ps2.executeUpdate();
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                %>
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>Edinburgh</td>
+                    <td><%=rs.getString("name") %></td>
+                    <td><%=rs.getString("contact_no") %></td>
+                    <td><%=rs.getString("category") %></td>
+                    <td><%=rs.getString("price") %></td>
                      <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
+                     <a href="ViewDetails.jsp?cont=<%=rs.getString("contact_no")%>" class="bt1">View Details</a></div></td>
                     
                 </tr>
-                <tr>
-                    <td>Garrett Winters</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>  
-                    <td>Edinburgh</td>
-                     <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-                    
-                </tr>
-                <tr>
-                    <td>Ashton Cox</td>
-                    <td>Junior Technical Author</td>
-                    <td>San Francisco</td>
-                   <td>Edinburgh</td>
-                   <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-                    
-                </tr>
-                <tr>
-                    <td>Cedric Kelly</td>
-                    <td>Senior Javascript Developer</td>
-                    <td>Edinburgh</td>
-                     <td>Edinburgh</td>
-                    <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-                  
-                </tr>
-                <tr>
-                    <td>Airi Satou</td>
-                    <td>Accountant</td>
-                    <td>Tokyo</td>
-                   <td>Edinburgh</td>
-                  <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-                    
-                </tr>
-                <tr>
-                    <td>Brielle Williamson</td>
-                    <td>Integration Specialist</td>
-                    <td>New York</td>
-                    <td>Edinburgh</td>
-                    <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
-                <tr>
-                    <td>Herrod Chandler</td>
-                    <td>Sales Assistant</td>
-                    <td>San Francisco</td>
-                    <td>Edinburgh</td>
-                    <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
-                <tr>
-                    <td>Rhona Davidson</td>
-                    <td>Integration Specialist</td>
-                    <td>Tokyo</td>
-                    <td>Edinburgh</td>
-                  <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
-                <tr>
-                    <td>Colleen Hurst</td>
-                    <td>Javascript Developer</td>
-                    <td>San Francisco</td>
-                    <td>Edinburgh</td>
-                  <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
-                <tr>
-                    <td>Sonya Frost</td>
-                    <td>Software Engineer</td>
-                    <td>Edinburgh</td>
-                    <td>Edinburgh</td>
-                   <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
-                <tr>
-                    <td>Jena Gaines</td>
-                    <td>Office Manager</td>
-                    <td>London</td>
-                    <td>Edinburgh</td>
-                   <td><div class="text-center w-full b1">
-                     <a href="ViewDetails.jsp" class="bt1">View Details</a></div></td>
-
-                </tr>
+         <%
+                        }
+                        con.close();
+                        }catch(Exception e){e.printStackTrace();}
+                    %>
             </tbody>
         </table>
     </div></div></div></div></div>
+                    <%
+                        }
+                    %>
 <%@include file="footer4.jsp" %>
  

@@ -34,7 +34,52 @@
         <meta name="msapplication-TileImage" content="/resources/favicons/mstile-144x144.png">
         <meta name="msapplication-config" content="/resources/favicons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
-        
+        <script>
+                    function validate(){
+                    var pass=document.f1.password.value;
+                    var pass1=document.f1.confirmPassword.value;
+                    var num=document.f1.contact.value;
+                    var first=num.charAt(0);
+                    var status=false;
+                    setTimeout(function()
+                    {
+                    if (pass.length<6) 
+                    {
+                            alert("please enter 6 digit password");
+                            status= false;
+                    }
+                    else{
+                        status=true;
+                    }
+                    if(pass1!=pass)
+                    {
+                            alert("please enter same password");
+                            status= false;
+                    }
+                    else{
+                        status=true;
+                    }
+                    if(isNaN(num) || num.length<10 && num.length>=0) 
+                    {
+                            alert("please enter valid number");
+                            status= false;
+                    }
+
+                    else if(!(first=="7" || first=="8" || first=="9"))
+                    {
+                            alert("please enter valid number");
+                            status= false;
+                    }
+                    else{
+                        status=true;
+                    }
+                    return status;
+                    },1);
+                    
+                 
+                    }
+
+</script>
     </head>
     <body>
         <header>

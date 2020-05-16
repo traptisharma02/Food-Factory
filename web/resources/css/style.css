@@ -216,7 +216,7 @@ header {
 
 .logo-black{
     display: none; 
-    height: 50px;
+    height: 80px;
     width: auto;
     float: left;
     margin: 5px 0;   
@@ -623,6 +623,19 @@ footer p{
     margin-top: 20px;
 }
 
+.cont li:hover{
+    color: #ddd;
+}
+.cont{
+    color: #888;
+}
+.cont ul{
+     list-style: none;
+     float: left;
+     text-decoration: none;
+     border: 0;
+     font-size: 80%;
+}
 
 /* ----------------------------------------------- */
 /* Animations */
