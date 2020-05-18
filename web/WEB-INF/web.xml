@@ -36,6 +36,14 @@
         <servlet-name>planSelectServlet</servlet-name>
         <servlet-class>planSelectServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendEmail</servlet-name>
+        <servlet-class>SendEmail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chngpassServlet</servlet-name>
+        <servlet-class>chngpassServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegDataServlet</servlet-name>
         <url-pattern>/RegDataServlet</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>planSelectServlet</servlet-name>
         <url-pattern>/planSelectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmail</servlet-name>
+        <url-pattern>/SendEmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chngpassServlet</servlet-name>
+        <url-pattern>/chngpassServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

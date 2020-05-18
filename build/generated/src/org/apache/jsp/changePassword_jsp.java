@@ -50,7 +50,37 @@ public final class changePassword_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<script>\r\n");
+      out.write("                    function validate(){\r\n");
+      out.write("                    var pass=document.f1.new_password.value;\r\n");
+      out.write("                    var pass1=document.f1.confirm_new_password.value;\r\n");
+      out.write("                    var status=false;\r\n");
+      out.write("                    setTimeout(function()\r\n");
+      out.write("                    {\r\n");
+      out.write("                    if (pass.length<6) \r\n");
+      out.write("                    {\r\n");
+      out.write("                            alert(\"please enter 6 digit password\");\r\n");
+      out.write("                            status= false;\r\n");
+      out.write("                    }\r\n");
+      out.write("                    else{\r\n");
+      out.write("                        status=true;\r\n");
+      out.write("                    }\r\n");
+      out.write("                    if(pass1!=pass)\r\n");
+      out.write("                    {\r\n");
+      out.write("                            alert(\"please enter same password\");\r\n");
+      out.write("                            status= false;\r\n");
+      out.write("                    }\r\n");
+      out.write("                    else{\r\n");
+      out.write("                        status=true;\r\n");
+      out.write("                    }\r\n");
+      out.write("                  \r\n");
+      out.write("                    return status;\r\n");
+      out.write("                    },1);\r\n");
+      out.write("                    \r\n");
+      out.write("                 \r\n");
+      out.write("                    }\r\n");
       out.write("\r\n");
+      out.write("</script>\r\n");
       out.write("        ");
       out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
@@ -88,7 +118,52 @@ public final class changePassword_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <meta name=\"msapplication-TileImage\" content=\"/resources/favicons/mstile-144x144.png\">\n");
       out.write("        <meta name=\"msapplication-config\" content=\"/resources/favicons/browserconfig.xml\">\n");
       out.write("        <meta name=\"theme-color\" content=\"#ffffff\">\n");
-      out.write("        \n");
+      out.write("        <script>\n");
+      out.write("                    function validate(){\n");
+      out.write("                    var pass=document.f1.password.value;\n");
+      out.write("                    var pass1=document.f1.confirmPassword.value;\n");
+      out.write("                    var num=document.f1.contact.value;\n");
+      out.write("                    var first=num.charAt(0);\n");
+      out.write("                    var status=false;\n");
+      out.write("                    setTimeout(function()\n");
+      out.write("                    {\n");
+      out.write("                    if (pass.length<6) \n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter 6 digit password\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    if(pass1!=pass)\n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter same password\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    if(isNaN(num) || num.length<10 && num.length>=0) \n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter valid number\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("\n");
+      out.write("                    else if(!(first==\"7\" || first==\"8\" || first==\"9\"))\n");
+      out.write("                    {\n");
+      out.write("                            alert(\"please enter valid number\");\n");
+      out.write("                            status= false;\n");
+      out.write("                    }\n");
+      out.write("                    else{\n");
+      out.write("                        status=true;\n");
+      out.write("                    }\n");
+      out.write("                    return status;\n");
+      out.write("                    },1);\n");
+      out.write("                    \n");
+      out.write("                 \n");
+      out.write("                    }\n");
+      out.write("\n");
+      out.write("</script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <header>\n");
@@ -100,37 +175,57 @@ public final class changePassword_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        <li><a href=\"index.jsp#features\">Food delivery</a></li>\n");
       out.write("                        <li><a href=\"index.jsp#works\">How it works</a></li>\n");
       out.write("                        <li><a href=\"index.jsp#cities\">Our cities</a></li>\n");
-      out.write("                        <li><a href=\"index.jsp#plans\">Sign up</a></li>\n");
+      out.write("                        <li><a href=\"index.jsp#plans\">Select Plan</a></li>\n");
+      out.write("                        <li><a href=\"signup.jsp\">Sign Up</a></li>\n");
+      out.write("                        \n");
       out.write("                    </ul>\n");
       out.write("                    <a class=\"mobile-nav-icon js--nav-icon\"><i class=\"ion-navicon-round\"></i></a>\n");
       out.write("                </div>\n");
       out.write("            </nav>");
       out.write("\r\n");
-      out.write("        <div class=\"limiter\">\r\n");
+      out.write("       \r\n");
+      out.write("        <div class=\"limiter\" style=\"height: 125%\">\r\n");
       out.write("            <div class=\"container-login\">\r\n");
-      out.write("                <div class=\"wrap-login\">\r\n");
+      out.write("                <div class=\"wrap-login\" style=\"margin-top: -7%;\">\r\n");
       out.write("                    <div class=\"text-center\"> \r\n");
-      out.write("                        <form action=\"#\" class=\"login-form\">\r\n");
-      out.write("                            <div class=\"my-2 ml-2\"><span>Current Password</span></div>\r\n");
-      out.write("                            <div class=\"wrap-input\">\r\n");
-      out.write("                                <input type=\"password\" name=\"current_password\" class=\"inputcustom\" />\r\n");
-      out.write("                            </div>\r\n");
+      out.write("                         <div class=\"container\">\r\n");
+      out.write("                              ");
+
+    String st="";
+    try{
+    st=request.getParameter("st");
+    if(st.equals("1")){
+
+      out.write("\r\n");
+      out.write("                <h2 style=\"margin-top: -1%;\">Change password</h2>\r\n");
+      out.write("          </div>\r\n");
+      out.write("             ");
+
+                 String m=request.getParameter("email");
+             
+      out.write("   \r\n");
+      out.write("             <form action=\"chngpassServlet?email=");
+      out.print( m);
+      out.write("\" class=\"login-form\" method=\"post\" name=\"f1\" onsubmit=\"return validate();\">\r\n");
+      out.write("                           \r\n");
       out.write("                            <div class=\"my-2 ml-2\"><span>New Password</span></div>\r\n");
       out.write("                            <div class=\"wrap-input\">\r\n");
-      out.write("                                <input type=\"password\" name=\"new_password\" class=\"inputcustom\" />\r\n");
+      out.write("                                <input type=\"password\" name=\"new_password\" id=\"new_password\" class=\"inputcustom\" />\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"my-2 ml-2\"><span>Confirm New Password</span></div>\r\n");
       out.write("                            <div class=\"wrap-input\">\r\n");
       out.write("                                <input type=\"password\" name=\"confirm_new_password\" class=\"inputcustom\" />\r\n");
       out.write("                            </div>\r\n");
       out.write("                            \r\n");
-      out.write("                            <button class=\"btn btn-block login-form-btn\">Login</button>\r\n");
+      out.write("                            <div class=\"text-center w-full b1\"><br><center>\r\n");
+      out.write("                     <input type=\"submit\" value=\"Change password\" class=\"btn btn-ghost\"></center></div>\r\n");
       out.write("                            \r\n");
       out.write("                        </form>               \r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("       \r\n");
       out.write("        ");
       out.write("     <footer>\n");
       out.write("            <div class=\"row\">\n");
@@ -148,6 +243,21 @@ public final class changePassword_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-twitter\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-googleplus\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-instagram\"></i></a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("          <div class=\"row\">\n");
+      out.write("                <div class=\"col span-1-of-2 cont\">\n");
+      out.write("                    \n");
+      out.write("                        <h3 class=\"text-uppercase font-weight-bold\">Contact</h3>\n");
+      out.write("                        <ul class=\"contUL\">\n");
+      out.write("                            <li>\n");
+      out.write("                                <i class=\"fas fa-home mr-3\"></i> New York, NY 10012, US</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-envelope mr-3\"></i> info@example.com</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-phone mr-3\"></i> + 01 234 567 88</li><br>\n");
+      out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
@@ -179,6 +289,21 @@ public final class changePassword_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("    </body>  \n");
       out.write("    \n");
       out.write("</html>");
+      out.write("\r\n");
+      out.write("         ");
+
+            }
+  else{
+                 out.println("<script type=\"text/javascript\">");
+                out.println("alert('Not allowed');");
+                out.println("</script>");        
+            }
+}
+catch(Exception e){
+out.print("not allowed");
+}
+          
+        
       out.write("\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");

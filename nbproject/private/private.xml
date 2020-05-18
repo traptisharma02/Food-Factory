@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/DAO/FeedData.java</file>
             <file>file:/F:/Food%20Factory/Food%20Factory/web/logIn.jsp</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/web/customer/feedback.jsp</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/feedServlet.java</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/web/customer/welcome.jsp</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/CusLoginServlet.java</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/DTO/CusLogBean.java</file>
-            <file>file:/F:/Food%20Factory/Food%20Factory/web/Admin/admin.jsp</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/web/EmailT.jsp</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/DAO/SendMail.java</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/SendEmail.java</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/planSelectServlet.java</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/web/changePassword.jsp</file>
+            <file>file:/F:/Food%20Factory/Food%20Factory/src/java/chngpassServlet.java</file>
         </group>
     </open-files>
 </project-private>

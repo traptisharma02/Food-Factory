@@ -163,11 +163,12 @@ public final class logIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              <form action=\"CusLoginServlet\" class=\"login-form\" method=\"post\">\r\n");
       out.write("            <div class=\"my-2 ml-2\"><span>Username</span></div>\r\n");
       out.write("            <div class=\"wrap-input\">\r\n");
-      out.write("                <input type=\"text\" name=\"contact\" class=\"inputcustom\" required=\"\"/>\r\n");
+      out.write("                <input type=\"text\" name=\"contact\" id=\"contact\" class=\"inputcustom\" required=\"\"/>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"my-2 ml-2\">\r\n");
       out.write("              <span>Password</span>\r\n");
-      out.write("              <a href=\"changePassword.jsp\" class=\"forgot ml3\">Forgot?</a>\r\n");
+      out.write("              \r\n");
+      out.write("              <a href=\"EmailT.jsp\" class=\"forgot ml3\">Forgot?</a>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"wrap-input\">\r\n");
       out.write("                <input type=\"password\" name=\"password\" class=\"inputcustom\" required=\"\"/>\r\n");

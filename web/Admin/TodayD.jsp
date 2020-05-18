@@ -11,7 +11,7 @@
     {
        out.println("<script type=\"text/javascript\">");
                     out.println("alert('Pls login first');");  
-                    out.println("location='../logIn.jsp';");
+                    out.println("location='../ALoginIn.jsp';");
                     out.println("</script>");
     }
     else{ 
