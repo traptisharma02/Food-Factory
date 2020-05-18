@@ -24,7 +24,7 @@
                     <a href="admin.jsp"> <img src="../resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="../resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>
                     <ul class="main-nav js--main-nav">
-                        <li><a href="TodayD.jsp">Today's Deliveries</a></li>
+                        <li><a href="TodayDel.jsp">Today's Deliveries</a></li>
                         <li><a href="ApproveC.jsp">Approve user</a></li>
                         <li><a href="ApprovePay.jsp">Approve payment</a></li>
                         <li><a href="ViewCustomer.jsp">View Customers</a></li>

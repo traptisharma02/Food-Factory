@@ -27,11 +27,11 @@
 <%
     String res=request.getParameter("res");
     String contact= request.getParameter("cont");
-      Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+     
    String del="";
         
         try{
-                    PreparedStatement ps=con.prepareStatement("select delivery from customer_plan where contact_no='"+contact+"'");
+                    PreparedStatement ps=con.prepareStatement("select * from customer_plan where contact_no='"+contact+"'");
                     ResultSet rs=ps.executeQuery();
                    while(rs.next()){
                        del=rs.getString("delivery");
@@ -39,16 +39,16 @@
                    int d=Integer.parseInt(del);
                    if(res.equals("deliver")){
                        del=String.valueOf(d-1);
-                       PreparedStatement ps2=con.prepareStatement("update customer_plan set delivery='"+del+"' and last_delivery='"+timestamp+"' where contact_no='"+contact+"'");
+                       PreparedStatement ps2=con.prepareStatement("update customer_plan set delivery='"+del+"' , last_delivery= now() where contact_no='"+contact+"'");
                     int i=ps2.executeUpdate();
                    }
                    else{
-                       PreparedStatement ps2=con.prepareStatement("update customer_plan set last_delivery='"+timestamp+"' where contact_no='"+contact+"'");
+                       PreparedStatement ps2=con.prepareStatement("update customer_plan set last_delivery= now() where contact_no='"+contact+"'");
                     int i=ps2.executeUpdate();
                    }
                    
                     out.println("<script type=\"text/javascript\">");
-                   out.println("location='TodayD.jsp';");
+                   out.println("location='TodayDel.jsp';");
                     out.println("</script>");
                
         }

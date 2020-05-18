@@ -183,7 +183,7 @@
                             <label for="i1">Item 1</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="text" name="i1" id="i1" placeholder="Enter Item 1 name" value="<%=rs.getString("item1") %>">
+                            <input type="text" name="i1" id="i1" placeholder="Enter Item 1 name" value="<%=rs.getString("item1") %>" readonly="">
                         </div>
                     </div>
                          <div class="row">
@@ -191,7 +191,7 @@
                             <label for="i2">Item 2</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="text" name="i2" id="i2" placeholder="Enter Item 2 name" value="<%=rs.getString("item2") %>">
+                            <input type="text" name="i2" id="i2" placeholder="Enter Item 2 name" value="<%=rs.getString("item2") %>" readonly="">
                         </div>
                     </div>
                 <div class="row">
@@ -199,7 +199,7 @@
                             <label for="i3">Item 3</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="text" name="i3" id="i3" placeholder="Enter Item 3 name" value="<%=rs.getString("item3") %>">
+                            <input type="text" name="i3" id="i3" placeholder="Enter Item 3 name" value="<%=rs.getString("item3") %>" readonly="">
                         </div>
                     </div>
                      

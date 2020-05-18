@@ -15,6 +15,7 @@
             <div class="wrap-input">
                 <input type="text" name="contact" class="inputcustom" required=""/>
             </div>
+             <div class="my-2 ml-2"><span>Password</span></div>
             <div class="wrap-input">
                 <input type="password" name="password" class="inputcustom" required=""/>
             </div>
