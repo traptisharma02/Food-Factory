@@ -18,8 +18,8 @@ public class SendEmail extends HttpServlet {
        
                     String subject = "Forget password";
                     String message =  "Reset password using the link given below:";
-                    String user ="traptitrisha@gmail.com";
-                    String pass = "trapti18c3192@";
+                    String user ="foodFactory432@gmail.com";
+                    String pass = "food`1234567890-=";
                     SendMail.send(to,subject, message, user, pass);
                      out.println("<script type=\"text/javascript\">");
                     out.println("alert('Email is send to your email-id plz chnge your password');");  

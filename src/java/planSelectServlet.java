@@ -60,7 +60,7 @@ public class planSelectServlet extends HttpServlet {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             Connection con = DBConnection.getConnection();
             PreparedStatement ps2=con.prepareStatement("delete from customer_plan where contact_no="+phone);
-            PreparedStatement ps=con.prepareStatement("insert into customer_plan values(?,?,?,?)");
+            PreparedStatement ps=con.prepareStatement("insert into customer_plan(contact_no,plan,planSelectDate,planDueDate) values(?,?,?,?)");
            
             ps.setString(1,phone);
            ps.setString(2,cat);

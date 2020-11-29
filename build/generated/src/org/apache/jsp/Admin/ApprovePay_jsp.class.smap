@@ -1,0 +1,30 @@
+SMAP
+ApprovePay_jsp.java
+JSP
+*S JSP
+*F
++ 0 ApprovePay.jsp
+Admin/ApprovePay.jsp
++ 1 header4.jsp
+Admin/header4.jsp
++ 2 footer4.jsp
+Admin/footer4.jsp
+*L
+1,7:54
+1#1,52:61
+7#0,3:113
+10,11:117
+20,31:128
+51,5:160
+55,2:165
+57,4:167,3
+61:179
+62:180,3
+63,3:183
+66,4:187
+69,5:191
+74,2:197
+75:199
+1#2,62:200
+76#0,2:262
+*E

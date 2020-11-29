@@ -1,0 +1,32 @@
+SMAP
+TodayDel_jsp.java
+JSP
+*S JSP
+*F
++ 0 TodayDel.jsp
+Admin/TodayDel.jsp
++ 1 header4.jsp
+Admin/header4.jsp
++ 2 footer4.jsp
+Admin/footer4.jsp
+*L
+1,9:54
+1#1,52:63
+9#0,3:115
+12,11:119
+22,31:130
+53,9:162
+61,2:171
+63,3:173,3
+66:182
+67:183,3
+68:186
+69:187,5
+70:192
+71:193,5
+72,2:198
+74,4:201
+77,5:205
+1#2,62:209
+81#0,2:271
+*E

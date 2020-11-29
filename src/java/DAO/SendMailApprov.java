@@ -5,7 +5,7 @@ import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-public class SendMail
+public class SendMailApprov
 { 
     public static void send(String to, String sub, 
                          String msg, final String user,final String pass)
@@ -48,7 +48,7 @@ public class SendMail
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
             message.setSubject(sub);
             message.setContent(
-              "<a href='http://localhost:8080/Food_Factory/changePassword.jsp?email="+to+"&st=1'> click to change password </a>",
+              "<a href='http://localhost:8080/Food_Factory/logIn.jsp'> click to login </a>",
              "text/html");
 
             /* Transport class is used to deliver the message to the recipients */

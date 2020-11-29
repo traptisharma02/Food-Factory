@@ -1,0 +1,18 @@
+SMAP
+EmailT_jsp.java
+JSP
+*S JSP
+*F
++ 0 EmailT.jsp
+EmailT.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+1,4:50
+1#1,100:54
+4#0,32:154
+1#2,62:186
+35#0,3:248
+*E

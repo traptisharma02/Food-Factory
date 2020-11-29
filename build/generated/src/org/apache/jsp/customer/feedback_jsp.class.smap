@@ -1,0 +1,20 @@
+SMAP
+feedback_jsp.java
+JSP
+*S JSP
+*F
++ 0 feedback.jsp
+customer/feedback.jsp
++ 1 header2.jsp
+customer/header2.jsp
++ 2 footer.jsp
+customer/../footer.jsp
+*L
+1,11:54
+1#1,54:65
+11#0,12:119
+22,47:131
+69:178,3
+70,2:181
+1#2,62:183
+*E
