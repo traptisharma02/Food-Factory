@@ -116,11 +116,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"../vendors/js/jquery.datatables.min.js\"></script>\n");
       out.write("\n");
       out.write("    <script src=\"../vendors/js/datatables.bootstrap4.min.js\"></script>\n");
-      out.write("    <script>\n");
-      out.write("        $(document).ready(function () {\n");
-      out.write("            $('#myTable').DataTable();\n");
-      out.write("        });\n");
-      out.write("    </script>\n");
+      out.write("    \n");
       out.write("        <meta name=\"msapplication-TileColor\" content=\"#da532c\">\n");
       out.write("        <meta name=\"msapplication-TileImage\" content=\"../resources/favicons/mstile-144x144.png\">\n");
       out.write("        <meta name=\"msapplication-config\" content=\"../resources/favicons/browserconfig.xml\">\n");
@@ -154,6 +150,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("             \n");
       out.write("</header>\n");
+      out.write("\n");
       out.write("<button onclick=\"window.scrollTo(0, 0); \" id=\"myBtn\" title=\"Go to top\" ><i class=\"ion-arrow-up-c\"></i></button>\n");
       out.write("        <section class=\"section-plans js--section-plans\" id=\"plans\">\n");
       out.write("               \n");

@@ -39,7 +39,7 @@
     </head>
     <body>
         <header>
-                        <nav >
+                        <nav>
                 <div class="row">
                     <a href="admin.jsp"> <img src="../resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="../resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>

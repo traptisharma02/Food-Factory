@@ -209,7 +209,7 @@
                     <div class="plan-box js--wp-4">
                         <div>
                             <h3><%=rs.getString("category") %></h3>
-                            <p class="plan-price">$<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
+                            <p class="plan-price">Rs.<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
                             <%
                                 int oneP=0;
                                 if(rs.getString("inter").equals("1"))

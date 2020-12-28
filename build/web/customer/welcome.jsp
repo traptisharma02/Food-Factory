@@ -32,8 +32,7 @@
              
 </header>
 
-<button onclick="window.scrollTo(0, 0); " id="myBtn" title="Go to top" ><i class="ion-arrow-up-c"></i></button>
-        <section class="section-plans js--section-plans" id="plans">
+        <section class="section-plans js--section-features" id="plans">
                
             <div class="row">
                 <h2>Start eating healthy today</h2>
@@ -51,7 +50,7 @@
                     <div class="plan-box js--wp-4">
                         <div>
                             <h3><%=rs.getString("category") %></h3>
-                            <p class="plan-price">$<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
+                            <p class="plan-price">Rs.<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
                             <%
                                 int oneP=0;
                                 if(rs.getString("inter").equals("1"))
@@ -286,4 +285,4 @@
           
    
           <!-- Footer Links -->
-<%@include file="../footer.jsp" %>
+<%@include file="footer.jsp" %>

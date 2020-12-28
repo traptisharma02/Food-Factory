@@ -34,9 +34,8 @@
             
 </header>
         
-        <button onclick="window.scrollTo(0, 0); " id="myBtn" title="Go to top" ><i class="ion-arrow-up-c"></i></button>
         
-        <section class="section-form js--section-plans" id="planChg">
+        <section class="section-form js--section-features" id="planChg">
             
             <div class="row">
                 <h2>Change plans </h2>
@@ -54,7 +53,7 @@
                     <div class="plan-box js--wp-4">
                         <div>
                             <h3><%=rs.getString("category") %></h3>
-                            <p class="plan-price">$<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
+                            <p class="plan-price">Rs.<%=rs.getString("price") %><span><%=rs.getString("validity") %></span></p>
                             <%
                                 int oneP=0;
                                 if(rs.getString("inter").equals("1"))
@@ -89,7 +88,7 @@
             </div>
         </section>
              
-         <section class="section-steps" id="todayM">
+         <section class="section-steps js--section-steps" id="todayM">
             <div class="row">
                 <h2>Add Today's Meal</h2>
             </div>
@@ -150,4 +149,4 @@
        }
    %>
           <!-- Footer Links -->
-<%@include file="../footer.jsp" %>
+<%@include file="footer.jsp" %>

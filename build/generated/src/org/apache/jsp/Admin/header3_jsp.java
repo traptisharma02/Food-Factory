@@ -82,7 +82,7 @@ public final class header3_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <header>\n");
-      out.write("            <nav class=\"sticky\">\n");
+      out.write("                        <nav>\n");
       out.write("                <div class=\"row\">\n");
       out.write("                    <a href=\"admin.jsp\"> <img src=\"../resources/img/logo-white.png\" alt=\"Omnifood logo\" class=\"logo\">\n");
       out.write("                    <img src=\"../resources/img/logo.png\" alt=\"Omnifood logo\" class=\"logo-black\"></a>\n");
