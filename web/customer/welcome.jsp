@@ -31,6 +31,7 @@
             </div>
              
 </header>
+
 <button onclick="window.scrollTo(0, 0); " id="myBtn" title="Go to top" ><i class="ion-arrow-up-c"></i></button>
         <section class="section-plans js--section-plans" id="plans">
                
@@ -211,7 +212,78 @@
 }
                     %>
         </section>
-   
+           <section class="section-form" id="ViewDetail">
+            <div class="row">
+                <h2>Here are your details </h2>
+            </div>
+            <div class="row">
+                  <%
+             Connection con=DBConnection.getConnection();
+             try{
+                   boolean st=false;
+                    PreparedStatement ps=con.prepareStatement("select * from user where contact_no="+(String)session.getAttribute("contact"));
+                    ResultSet rs=ps.executeQuery();
+                   
+                    while(rs.next()){
+                       
+                %>
+                <form method="post" action="#" class="contact-form">
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="name" id="name" value="<%=rs.getString("name")%>" placeholder="name" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="contact_no">Contact no</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="contact_no" id="contact_no" value="<%=rs.getString("contact_no")%> " placeholder="contact_no" readonly>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email_id">Email id</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="email_id" id="email_id" placeholder="email_id" value="<%=rs.getString("email_id")%>" readonly>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="password">Password</label>
+                        </div>
+                         <div class="col span-2-of-3">
+                            <input type="password" name="password" id="password"  placeholder="password"  value="<%=rs.getString("password")%>" readonly>
+                       
+                         </div>
+                     </div>
+                             <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="address">Address</label>
+                        </div>
+                         <div class="col span-2-of-3">
+                            <div class="text-center w-full b2">
+                                <h4><a href="ViewLocation.jsp?cont=<%=rs.getString("contact_no")%>" class="text2 signup" style="color: #e67e22"><i class="fa fa-map-marker-alt" style="font-size: 20px"></i>&nbsp;&nbsp;View location on map</a></h4>
+                              </div>
+                        </div>
+                     </div>
+                            <center>
+                     <div>
+                         <a href="ChangeProfile.jsp?cont=<%=rs.getString("contact_no")%>" class="btn btn-ghost">Update</a>
+                        </div>
+                     </center>
+                </form>
+                           </div>
+        </section>
+               <%
+                }
+                        }catch(Exception e){e.printStackTrace();}
+                    %>
+          
    
           <!-- Footer Links -->
 <%@include file="../footer.jsp" %>

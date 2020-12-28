@@ -44,6 +44,10 @@
         <servlet-name>chngpassServlet</servlet-name>
         <servlet-class>chngpassServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <servlet-class>ChangeProfileServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegDataServlet</servlet-name>
         <url-pattern>/RegDataServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>chngpassServlet</servlet-name>
         <url-pattern>/chngpassServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeProfileServlet</servlet-name>
+        <url-pattern>/ChangeProfileServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

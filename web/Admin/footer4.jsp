@@ -21,20 +21,20 @@
               <div class="col span-1-of-2 cont" style="margin-left: 5%">
                     
                   <h5 class="text-uppercase font-weight-bold">&nbsp;&nbspContact</h5>
-                        <ul class="contUL">
+                     <ul class="contUL">
                             <li>
-                                <i class="fas fa-home mr-3"></i> New York, NY 10012, US</li><br>
+                                <i class="fas fa-home mr-3"></i> sectorA-1 scheme no. 136, indore</li><br>
                             <li>
-                              <i class="fas fa-envelope mr-3"></i> info@example.com</li><br>
+                              <i class="fas fa-envelope mr-3"></i>foodfactory@gmail.com</li><br>
                             <li>
-                              <i class="fas fa-phone mr-3"></i> + 01 234 567 88</li><br>
+                              <i class="fas fa-phone mr-3"></i> 9993387574</li><br>
 
                     </ul>
                 </div>
             </div>
          <div class="row" style="margin-left: 35%">
                 <p>
-                    Copyright &copy; 2019 by food factory. All rights reserved.
+                    Copyright &copy; 2021 by food factory. All rights reserved.
                 </p>
              </div>
         </footer>

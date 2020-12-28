@@ -3,6 +3,10 @@ package org.apache.jsp.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import DB.DBConnection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
 
 public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,21 +54,38 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
       out.write("\n");
-      out.write(" ");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+
+    session=request.getSession(false);
+    if(session.getAttribute("contact")==null)
+    {
+       out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Pls login first');");  
+                    out.println("location='../ALoginIn.jsp';");
+                    out.println("</script>");
+    }
+    else{ 
+     Connection con=DBConnection.getConnection();
+
+      out.write('\n');
+      out.write(' ');
       out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
       out.write("        <meta charset=\"utf-8\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
       out.write("        <meta name=\"description\" content=\"Omnifood is a premium food delivery service with the mission to bring affordable and healty meals to as many people as possible.\">\n");
-      out.write("        \n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/normalize.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/grid.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/ionicons.min.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/animate.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/style.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/login.css\">\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/approve.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/queries.css\">\n");
       out.write("        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>\n");
       out.write("        <title>Omnifood</title>\n");
@@ -78,7 +99,7 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"admin.jsp\"> <img src=\"../resources/img/logo-white.png\" alt=\"Omnifood logo\" class=\"logo\">\n");
       out.write("                    <img src=\"../resources/img/logo.png\" alt=\"Omnifood logo\" class=\"logo-black\"></a>\n");
       out.write("                    <ul class=\"main-nav js--main-nav\">\n");
-      out.write("                        <li><a href=\"TodayD.jsp\">Today's Deliveries</a></li>\n");
+      out.write("                        <li><a href=\"TodayDel.jsp\">Today's Deliveries</a></li>\n");
       out.write("                        <li><a href=\"ApproveC.jsp\">Approve user</a></li>\n");
       out.write("                        <li><a href=\"ApprovePay.jsp\">Approve payment</a></li>\n");
       out.write("                        <li><a href=\"ViewCustomer.jsp\">View Customers</a></li>\n");
@@ -100,13 +121,26 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("        <button onclick=\"window.scrollTo(0, 0); \" id=\"myBtn\" title=\"Go to top\" ><i class=\"ion-arrow-up-c\"></i></button>\n");
       out.write("            <div class=\"row\">\n");
+      out.write("               \n");
       out.write("                <form method=\"post\" action=\"#\" >\n");
+      out.write("                     ");
+
+             try{
+                  String contact= request.getParameter("cont");
+                    PreparedStatement ps=con.prepareStatement("select * from (( customer_plan join user on user.contact_no=customer_plan.contact_no) join meal on meal.category=customer_plan.plan) where user.contact_no='"+contact+"'");
+                    
+                    ResultSet rs=ps.executeQuery();
+                    while(rs.next()){
+                
+      out.write("\n");
       out.write("                  <div class=\"row\">\n");
       out.write("                        <div class=\"col span-1-of-3\">\n");
       out.write("                            <label for=\"Name\">Name</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Enter Name\">\n");
+      out.write("                            <input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Enter Name\" value=\"");
+      out.print(rs.getString("name"));
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -114,7 +148,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"price\">Contact-No.</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"contact\" id=\"contact\" placeholder=\"Enter Contact Number\">\n");
+      out.write("                            <input type=\"text\" name=\"contact\" id=\"contact\" placeholder=\"Enter Contact Number\" value=\"");
+      out.print(rs.getString("contact_no"));
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -122,7 +158,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"email\">Email</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Email\">\n");
+      out.write("                            <input type=\"text\" name=\"email\" id=\"email\" placeholder=\"Enter Email\" value=\"");
+      out.print(rs.getString("email_id"));
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -130,7 +168,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label>Address</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <textarea name=\"address\" placeholder=\"Your Address\" id=\"address\"></textarea>\n");
+      out.write("                            <textarea name=\"address\" placeholder=\"Your Address\" id=\"address\" readonly=\"\">");
+      out.print(rs.getString("address"));
+      out.write("</textarea>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -138,7 +178,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"planc\">Plan</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"planc\" id=\"planc\" placeholder=\"Enter plan category\">\n");
+      out.write("                            <input type=\"text\" name=\"planc\" id=\"planc\" placeholder=\"Enter plan category\" value=\"");
+      out.print(rs.getString("plan"));
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"row\">\n");
@@ -146,7 +188,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"price\">Price</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"price\" id=\"price\" placeholder=\"Enter Price\">\n");
+      out.write("                            <input type=\"text\" name=\"price\" id=\"price\" placeholder=\"Enter Price\" value=\"");
+      out.print(rs.getString("price"));
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                     <div class=\"row\">\n");
@@ -154,7 +198,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"selectedD\">Plan selected at</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"selectedD\" id=\"selectedD\" value=\"Selection date\" readonly>\n");
+      out.write("                            <input type=\"text\" name=\"selectedD\" id=\"selectedD\" value=\"");
+      out.print(rs.getString("planSelectDate"));
+      out.write("\" readonly>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                     <div class=\"row\">\n");
@@ -162,7 +208,9 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"due\">Plan due date</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <input type=\"text\" name=\"due\" id=\"due\" value=\"Due Date\" readonly>\n");
+      out.write("                            <input type=\"text\" name=\"due\" id=\"due\" value=\"");
+      out.print(rs.getString("planDueDate"));
+      out.write("\" readonly>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                     <div class=\"row\">\n");
@@ -170,16 +218,34 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"exFeatures\">Other features</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <textarea name=\"exFeatures\" id=\"exFeatures\" rows\"2\" readonly >1 meal 10 days/month.  Order 24/7.  \n");
-      out.write("                            Free delivery</textarea>\n");
+      out.write("                            <textarea name=\"exFeatures\" id=\"exFeatures\"  readonly >Total &nbsp;");
+      out.print(rs.getString("inter"));
+      out.write("meal. ");
+      out.print(rs.getString("orderTiming"));
+      out.write(" . ");
+      out.print(rs.getString("accessNew"));
+      out.write('.');
+      out.write(' ');
+      out.print(rs.getString("freeDelivery"));
+      out.write(" . </textarea>\n");
       out.write("                        </div>\n");
       out.write("\n");
       out.write("                    </div>\n");
       out.write("                </form>\n");
-      out.write("                \n");
+      out.write("                ");
+
+                        }
+                        con.close();
+                        }catch(Exception e){e.printStackTrace();}
+                    
+      out.write(" \n");
       out.write("            </div>\n");
-      out.write("            </div></div></div></div>\n");
-      out.write("   \n");
+      out.write("            </div></div></div>\n");
+      out.write("   ");
+
+       }
+   
+      out.write("\n");
       out.write("          <!-- Footer Links -->\n");
       out.write("     <footer>\n");
       out.write("            <div class=\"row\">\n");
@@ -197,6 +263,21 @@ public final class ViewDetails_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-twitter\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-googleplus\"></i></a></li>\n");
       out.write("                        <li><a href=\"#\"><i class=\"ion-social-instagram\"></i></a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("          <div class=\"row\">\n");
+      out.write("                <div class=\"col span-1-of-2 cont\">\n");
+      out.write("                    \n");
+      out.write("                        <h3 class=\"text-uppercase font-weight-bold\">Contact</h3>\n");
+      out.write("                        <ul class=\"contUL\">\n");
+      out.write("                            <li>\n");
+      out.write("                                <i class=\"fas fa-home mr-3\"></i> New York, NY 10012, US</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-envelope mr-3\"></i> info@example.com</li><br>\n");
+      out.write("                            <li>\n");
+      out.write("                              <i class=\"fas fa-phone mr-3\"></i> + 01 234 567 88</li><br>\n");
+      out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");

@@ -48,7 +48,7 @@ public class SendMailApprov
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
             message.setSubject(sub);
             message.setContent(
-              "<a href='http://localhost:8080/Food_Factory/logIn.jsp'> click to login </a>",
+              "<h4>Your request accepted successfully</h4>",
              "text/html");
 
             /* Transport class is used to deliver the message to the recipients */

@@ -3,7 +3,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Omnifood is a premium food delivery service with the mission to bring affordable and healty meals to as many people as possible.">
-        
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
@@ -90,7 +91,7 @@
                     <ul class="main-nav js--main-nav">
                         <li><a href="index.jsp#features">Food delivery</a></li>
                         <li><a href="index.jsp#works">How it works</a></li>
-                        <li><a href="index.jsp#cities">Our cities</a></li>
+                        <li><a href="index.jsp#cities">Our locations</a></li>
                         <li><a href="index.jsp#plans">Select Plan</a></li>
                         <li><a href="signup.jsp">Sign Up</a></li>
                         

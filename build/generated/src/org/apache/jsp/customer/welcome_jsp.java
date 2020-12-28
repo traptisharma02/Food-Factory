@@ -88,7 +88,8 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/queries.css\">\n");
       out.write("        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>\n");
       out.write("        <title>Omnifood</title>\n");
-      out.write("        \n");
+      out.write("          <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.0/css/all.css\" integrity=\"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ\" crossorigin=\"anonymous\">\n");
+      out.write("\n");
       out.write("        <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"../resources/favicons/apple-touch-icon-57x57.png\">\n");
       out.write("        <link rel=\"apple-touch-icon\" sizes=\"60x60\" href=\"../resources/favicons/apple-touch-icon-60x60.png\">\n");
       out.write("        <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"../resources/favicons/apple-touch-icon-72x72.png\">\n");
@@ -105,6 +106,21 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"icon\" type=\"image/png\" href=\"../resources/favicons/favicon-16x16.png\" sizes=\"16x16\">\n");
       out.write("        <link rel=\"manifest\" href=\"../resources/favicons/manifest.json\">\n");
       out.write("        <link rel=\"shortcut icon\" href=\"../resources/favicons/favicon.ico\">\n");
+      out.write("        \n");
+      out.write("    <link href=\"../vendors/css/datatables.bootstrap4.min.css\" rel=\"stylesheet\">\n");
+      out.write("\n");
+      out.write("    <!-- Bootstrap core JavaScript-->\n");
+      out.write("    <script src=\"../vendors/js/jquery.min.js\"></script>\n");
+      out.write("\n");
+      out.write("    <!-- Page level plugin JavaScript-->\n");
+      out.write("    <script src=\"../vendors/js/jquery.datatables.min.js\"></script>\n");
+      out.write("\n");
+      out.write("    <script src=\"../vendors/js/datatables.bootstrap4.min.js\"></script>\n");
+      out.write("    <script>\n");
+      out.write("        $(document).ready(function () {\n");
+      out.write("            $('#myTable').DataTable();\n");
+      out.write("        });\n");
+      out.write("    </script>\n");
       out.write("        <meta name=\"msapplication-TileColor\" content=\"#da532c\">\n");
       out.write("        <meta name=\"msapplication-TileImage\" content=\"../resources/favicons/mstile-144x144.png\">\n");
       out.write("        <meta name=\"msapplication-config\" content=\"../resources/favicons/browserconfig.xml\">\n");
@@ -119,7 +135,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <img src=\"../resources/img/logo.png\" alt=\"Omnifood logo\" class=\"logo-black\"></a>\n");
       out.write("                    <ul class=\"main-nav js--main-nav\">\n");
       out.write("                        <li><a href=\"welcome.jsp#plans\">Select new plan</a></li>\n");
-      out.write("                        <li><a href=\"welcome.jsp#todayM\">Today's meal</a></li>\n");
+      out.write("                        <li><a href=\"welcome.jsp#ViewDetail\">View your details</a></li>\n");
       out.write("                         <li><a href=\"welcome.jsp#Uplan\">Plans you selected</a></li>\n");
       out.write("                          <li><a href=\"feedback.jsp\">Feedback</a></li>\n");
       out.write("                         <li><a href=\"../LogoutServlet\">logout</a></li>\n");
@@ -169,12 +185,12 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            ");
 
                                 int oneP=0;
-                                if(rs.getString("validity").equals("/month"))
-                                    oneP=(Integer.parseInt(rs.getString("price")))/30;
-                                else if(rs.getString("validity").equals("/week"))
-                                    oneP=(Integer.parseInt(rs.getString("price")))/7;
-                                else
+                                if(rs.getString("inter").equals("1"))
                                     oneP=(Integer.parseInt(rs.getString("price")));
+                                else if(rs.getString("inter").equals("3"))
+                                    oneP=(Integer.parseInt(rs.getString("price")))/3;
+                                else
+                                    oneP=(Integer.parseInt(rs.getString("price")))/30;
                             
       out.write("\n");
       out.write("                            <p class=\"plan-price-meal\">That's only ");
@@ -183,9 +199,9 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\n");
       out.write("                        <div>\n");
       out.write("                            <ul>\n");
-      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>");
+      out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>Total &nbsp;");
       out.print(rs.getString("inter") );
-      out.write("</li>\n");
+      out.write("meal</li>\n");
       out.write("                                <li><i class=\"ion-ios-checkmark-empty icon-small\"></i>");
       out.print(rs.getString("orderTiming") );
       out.write("</li>\n");
@@ -224,17 +240,12 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
 
             
              try{
-                   
+                   boolean st=false;
                     PreparedStatement ps=con.prepareStatement("select * from customer_plan c join meal where meal.category=c.plan and c.contact_no="+(String)session.getAttribute("contact"));
                     ResultSet rs=ps.executeQuery();
-                    if(!rs.next()){
-                        
-      out.write("\n");
-      out.write("                        <center><h3>No existing plan...</h3></center>\n");
-      out.write("                        ");
-
-                    }
+                   
                     while(rs.next()){
+                        st=true;
                 
       out.write("\n");
       out.write("                <form method=\"post\" action=\"#\" class=\"contact-form\">\n");
@@ -284,10 +295,9 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <label for=\"exFeatures\">Other features</label>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"col span-2-of-3\">\n");
-      out.write("                            <textarea name=\"exFeatures\" id=\"exFeatures\" placeholder=\"No plan selected\" readonly >");
+      out.write("                            <textarea name=\"exFeatures\" id=\"exFeatures\" placeholder=\"No plan selected\" readonly >Total ");
       out.print(rs.getString("inter"));
-      out.write('.');
-      out.write(' ');
+      out.write("meal. ");
       out.print(rs.getString("orderTiming"));
       out.write(" . ");
       out.print(rs.getString("accessNew"));
@@ -304,7 +314,13 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                 ");
 
                         }
-                    
+                     if(!st){
+                        
+      out.write("\n");
+      out.write("                        <center><h3>No existing plan...</h3></center>\n");
+      out.write("                        ");
+
+                    }
                 
                         }catch(Exception e){e.printStackTrace();}
                     
@@ -343,7 +359,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"col span-2-of-3\">\n");
       out.write("                            <input type=\"text\" name=\"i1\" id=\"i1\" placeholder=\"Enter Item 1 name\" value=\"");
       out.print(rs.getString("item1") );
-      out.write("\">\n");
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                         <div class=\"row\">\n");
@@ -353,7 +369,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"col span-2-of-3\">\n");
       out.write("                            <input type=\"text\" name=\"i2\" id=\"i2\" placeholder=\"Enter Item 2 name\" value=\"");
       out.print(rs.getString("item2") );
-      out.write("\">\n");
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                <div class=\"row\">\n");
@@ -363,7 +379,7 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"col span-2-of-3\">\n");
       out.write("                            <input type=\"text\" name=\"i3\" id=\"i3\" placeholder=\"Enter Item 3 name\" value=\"");
       out.print(rs.getString("item3") );
-      out.write("\">\n");
+      out.write("\" readonly=\"\">\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                     \n");
@@ -377,7 +393,94 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
                     
       out.write("\n");
       out.write("        </section>\n");
-      out.write("   \n");
+      out.write("           <section class=\"section-form\" id=\"ViewDetail\">\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <h2>Here are your details </h2>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                  ");
+
+             Connection con=DBConnection.getConnection();
+             try{
+                   boolean st=false;
+                    PreparedStatement ps=con.prepareStatement("select * from user where contact_no="+(String)session.getAttribute("contact"));
+                    ResultSet rs=ps.executeQuery();
+                   
+                    while(rs.next()){
+                       
+                
+      out.write("\n");
+      out.write("                <form method=\"post\" action=\"#\" class=\"contact-form\">\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("                        <div class=\"col span-1-of-3\">\n");
+      out.write("                            <label for=\"name\">Name</label>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col span-2-of-3\">\n");
+      out.write("                            <input type=\"text\" name=\"name\" id=\"name\" value=\"");
+      out.print(rs.getString("name"));
+      out.write("\" placeholder=\"name\" readonly>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("                        <div class=\"col span-1-of-3\">\n");
+      out.write("                            <label for=\"contact_no\">Contact no</label>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col span-2-of-3\">\n");
+      out.write("                            <input type=\"text\" name=\"contact_no\" id=\"contact_no\" value=\"");
+      out.print(rs.getString("contact_no"));
+      out.write(" \" placeholder=\"contact_no\" readonly>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                        <div class=\"col span-1-of-3\">\n");
+      out.write("                            <label for=\"email_id\">Email id</label>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col span-2-of-3\">\n");
+      out.write("                            <input type=\"text\" name=\"email_id\" id=\"email_id\" placeholder=\"email_id\" value=\"");
+      out.print(rs.getString("email_id"));
+      out.write("\" readonly>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                     <div class=\"row\">\n");
+      out.write("                        <div class=\"col span-1-of-3\">\n");
+      out.write("                            <label for=\"password\">Password</label>\n");
+      out.write("                        </div>\n");
+      out.write("                         <div class=\"col span-2-of-3\">\n");
+      out.write("                            <input type=\"password\" name=\"password\" id=\"password\"  placeholder=\"password\"  value=\"");
+      out.print(rs.getString("password"));
+      out.write("\" readonly>\n");
+      out.write("                       \n");
+      out.write("                         </div>\n");
+      out.write("                     </div>\n");
+      out.write("                             <div class=\"row\">\n");
+      out.write("                        <div class=\"col span-1-of-3\">\n");
+      out.write("                            <label for=\"address\">Address</label>\n");
+      out.write("                        </div>\n");
+      out.write("                         <div class=\"col span-2-of-3\">\n");
+      out.write("                            <div class=\"text-center w-full b2\">\n");
+      out.write("                                <h4><a href=\"ViewLocation.jsp?cont=");
+      out.print(rs.getString("contact_no"));
+      out.write("\" class=\"text2 signup\" style=\"color: #e67e22\"><i class=\"fa fa-map-marker-alt\" style=\"font-size: 20px\"></i>&nbsp;&nbsp;View location on map</a></h4>\n");
+      out.write("                              </div>\n");
+      out.write("                        </div>\n");
+      out.write("                     </div>\n");
+      out.write("                            <center>\n");
+      out.write("                     <div>\n");
+      out.write("                         <a href=\"ChangeProfile.jsp?cont=");
+      out.print(rs.getString("contact_no"));
+      out.write("\" class=\"btn btn-ghost\">Update</a>\n");
+      out.write("                        </div>\n");
+      out.write("                     </center>\n");
+      out.write("                </form>\n");
+      out.write("                           </div>\n");
+      out.write("        </section>\n");
+      out.write("               ");
+
+                }
+                        }catch(Exception e){e.printStackTrace();}
+                    
+      out.write("\n");
+      out.write("          \n");
       out.write("   \n");
       out.write("          <!-- Footer Links -->\n");
       out.write("     <footer>\n");
@@ -405,18 +508,18 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <h3 class=\"text-uppercase font-weight-bold\">Contact</h3>\n");
       out.write("                        <ul class=\"contUL\">\n");
       out.write("                            <li>\n");
-      out.write("                                <i class=\"fas fa-home mr-3\"></i> New York, NY 10012, US</li><br>\n");
+      out.write("                                <i class=\"fas fa-home mr-3\"></i> sectorA-1 scheme no. 136, indore</li><br>\n");
       out.write("                            <li>\n");
-      out.write("                              <i class=\"fas fa-envelope mr-3\"></i> info@example.com</li><br>\n");
+      out.write("                              <i class=\"fas fa-envelope mr-3\"></i>foodfactory@gmail.com</li><br>\n");
       out.write("                            <li>\n");
-      out.write("                              <i class=\"fas fa-phone mr-3\"></i> + 01 234 567 88</li><br>\n");
+      out.write("                              <i class=\"fas fa-phone mr-3\"></i> 9993387574</li><br>\n");
       out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"row\">\n");
       out.write("                <p>\n");
-      out.write("                    Copyright &copy; 2019 by food factory. All rights reserved.\n");
+      out.write("                    Copyright &copy; 2021 by food factory. All rights reserved.\n");
       out.write("                </p>\n");
       out.write("            </div>\n");
       out.write("        </footer>\n");

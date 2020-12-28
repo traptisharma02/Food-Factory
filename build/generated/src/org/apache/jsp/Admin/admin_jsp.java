@@ -66,7 +66,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
     {
        out.println("<script type=\"text/javascript\">");
                     out.println("alert('Pls login first');");  
-                    out.println("location='../logIn.jsp';");
+                    out.println("location='../ALoginIn.jsp';");
                     out.println("</script>");
     }
     else{ 
@@ -81,6 +81,8 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
       out.write("        <meta name=\"description\" content=\"Omnifood is a premium food delivery service with the mission to bring affordable and healty meals to as many people as possible.\">\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.0/css/all.css\" integrity=\"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ\" crossorigin=\"anonymous\">\n");
+      out.write("\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/normalize.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/grid.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../vendors/css/ionicons.min.css\">\n");
@@ -90,6 +92,21 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/approve.css\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"../resources/css/queries.css\">\n");
       out.write("        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>\n");
+      out.write("        \n");
+      out.write("    <link href=\"../vendors/css/datatables.bootstrap4.min.css\" rel=\"stylesheet\">\n");
+      out.write("\n");
+      out.write("    <!-- Bootstrap core JavaScript-->\n");
+      out.write("    <script src=\"../vendors/js/jquery.min.js\"></script>\n");
+      out.write("\n");
+      out.write("    <!-- Page level plugin JavaScript-->\n");
+      out.write("    <script src=\"../vendors/js/jquery.datatables.min.js\"></script>\n");
+      out.write("\n");
+      out.write("    <script src=\"../vendors/js/datatables.bootstrap4.min.js\"></script>\n");
+      out.write("    <script>\n");
+      out.write("        $(document).ready(function () {\n");
+      out.write("            $('#myTable').DataTable();\n");
+      out.write("        });\n");
+      out.write("    </script>\n");
       out.write("        <title>Omnifood</title>\n");
       out.write("     \n");
       out.write("        \n");
@@ -101,7 +118,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"admin.jsp\"> <img src=\"../resources/img/logo-white.png\" alt=\"Omnifood logo\" class=\"logo\">\n");
       out.write("                    <img src=\"../resources/img/logo.png\" alt=\"Omnifood logo\" class=\"logo-black\"></a>\n");
       out.write("                    <ul class=\"main-nav js--main-nav\">\n");
-      out.write("                        <li><a href=\"TodayD.jsp\">Today's Deliveries</a></li>\n");
+      out.write("                        <li><a href=\"TodayDel.jsp\">Today's Deliveries</a></li>\n");
       out.write("                        <li><a href=\"ApproveC.jsp\">Approve user</a></li>\n");
       out.write("                        <li><a href=\"ApprovePay.jsp\">Approve payment</a></li>\n");
       out.write("                        <li><a href=\"ViewCustomer.jsp\">View Customers</a></li>\n");
@@ -286,18 +303,18 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <h3 class=\"text-uppercase font-weight-bold\">Contact</h3>\n");
       out.write("                        <ul class=\"contUL\">\n");
       out.write("                            <li>\n");
-      out.write("                                <i class=\"fas fa-home mr-3\"></i> New York, NY 10012, US</li><br>\n");
+      out.write("                                <i class=\"fas fa-home mr-3\"></i> sectorA-1 scheme no. 136, indore</li><br>\n");
       out.write("                            <li>\n");
-      out.write("                              <i class=\"fas fa-envelope mr-3\"></i> info@example.com</li><br>\n");
+      out.write("                              <i class=\"fas fa-envelope mr-3\"></i>foodfactory@gmail.com</li><br>\n");
       out.write("                            <li>\n");
-      out.write("                              <i class=\"fas fa-phone mr-3\"></i> + 01 234 567 88</li><br>\n");
+      out.write("                              <i class=\"fas fa-phone mr-3\"></i> 9993387574</li><br>\n");
       out.write("\n");
       out.write("                    </ul>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"row\">\n");
       out.write("                <p>\n");
-      out.write("                    Copyright &copy; 2019 by food factory. All rights reserved.\n");
+      out.write("                    Copyright &copy; 2021 by food factory. All rights reserved.\n");
       out.write("                </p>\n");
       out.write("            </div>\n");
       out.write("        </footer>\n");

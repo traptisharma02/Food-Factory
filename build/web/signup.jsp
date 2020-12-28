@@ -5,6 +5,15 @@
 <body style="margin-top: -.8%">
       <!-- Header -->
       <!-- Header-->
+      <script> 
+		function getlocation(){ 
+				navigator.geolocation.getCurrentPosition(showLoc); 
+		} 
+		function showLoc(pos){ 
+				document.getElementById("address1").value=pos.coords.latitude;
+				document.getElementById("address2").value= pos.coords.longitude;         
+			} 
+		</script>
 <%@include file="header.jsp" %>
     <div class="limiter" >
       <div  class="container-login"  >
@@ -44,8 +53,12 @@
             </div>
               <div class="my-2 ml-2"><span>Address</span></div>
             <div class="wrap-input">
-                <textarea name="address" class="inputcustom" style="width: 100%" required=""></textarea>
-            </div>
+                <input type="text" name="address1" id="address1" class="inputcustom" style="width:48%" />
+                <input type="text" name="address2" id="address2" class="inputcustom" style="width:48%;margin-top: -40px;margin-left: 50%"  />
+             </div>  
+                 <div class="text-center w-full b1">
+                       <i class="fa fa-map-marker-alt" style="font-size: 20px"></i>&nbsp  <input type="button" onclick="getlocation()" value="Select current location"  class="btn btn-ghost"></div>
+            
              
               <button onclick="window.scrollTo(0, 0); " id="myBtn" title="Go to top" ><i class="ion-arrow-up-c"></i></button>
               

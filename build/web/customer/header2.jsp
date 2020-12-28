@@ -13,7 +13,8 @@
         <link rel="stylesheet" type="text/css" href="../resources/css/queries.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
         <title>Omnifood</title>
-        
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <link rel="apple-touch-icon" sizes="57x57" href="../resources/favicons/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="../resources/favicons/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="../resources/favicons/apple-touch-icon-72x72.png">
@@ -30,6 +31,17 @@
         <link rel="icon" type="image/png" href="../resources/favicons/favicon-16x16.png" sizes="16x16">
         <link rel="manifest" href="../resources/favicons/manifest.json">
         <link rel="shortcut icon" href="../resources/favicons/favicon.ico">
+        
+    <link href="../vendors/css/datatables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendors/js/jquery.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="../vendors/js/jquery.datatables.min.js"></script>
+
+    <script src="../vendors/js/datatables.bootstrap4.min.js"></script>
+    
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="../resources/favicons/mstile-144x144.png">
         <meta name="msapplication-config" content="../resources/favicons/browserconfig.xml">
@@ -44,7 +56,7 @@
                     <img src="../resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>
                     <ul class="main-nav js--main-nav">
                         <li><a href="welcome.jsp#plans">Select new plan</a></li>
-                        <li><a href="welcome.jsp#todayM">Today's meal</a></li>
+                        <li><a href="welcome.jsp#ViewDetail">View your details</a></li>
                          <li><a href="welcome.jsp#Uplan">Plans you selected</a></li>
                           <li><a href="feedback.jsp">Feedback</a></li>
                          <li><a href="../LogoutServlet">logout</a></li>

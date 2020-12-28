@@ -23,13 +23,15 @@ public class RegDataServlet extends HttpServlet {
      String phone=request.getParameter("contact");
      String email=request.getParameter("email");
      String passwd=request.getParameter("password");
-     String addr=request.getParameter("address");
+     Float addr1=Float.parseFloat(request.getParameter("address1"));
+     Float addr2=Float.parseFloat(request.getParameter("address2"));
       PrintWriter out = response.getWriter();  
      
      
      RegBean reg=new RegBean();
      reg.setName1(name);
-     reg.setAdd1(addr);
+     reg.setAdd1(addr1);
+     reg.setAdd2(addr2);
      reg.setPh1(phone);
      reg.setEmail(email);
      reg.setPw1(passwd);

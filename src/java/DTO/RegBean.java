@@ -10,7 +10,8 @@ package DTO;
  * @author DELL
  */
 public class RegBean {
-  String username,email,password,address;
+  String username,email,password;
+  Float address1,address2;
   String contact;
    public String getName1() {
         return username;
@@ -20,14 +21,21 @@ public class RegBean {
         this.username = name1;
     }
 
-    public String getAdd1() {
-        return address;
+    public Float getAdd1() {
+        return address1;
     }
 
-    public void setAdd1(String add1) {
-        this.address = add1;
+    public void setAdd1(Float add1) {
+        this.address1 = add1;
     }
 
+    public Float getAdd2() {
+        return address2;
+    }
+
+    public void setAdd2(Float add2) {
+        this.address2 = add2;
+    }
     public String getPh1() {
         return contact;
     }

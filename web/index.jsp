@@ -24,7 +24,7 @@
             <div class="row">
                 <h2>Get food fast &mdash; not fast food</h2>
                 <p class="long-copy">
-                    Hello, we're Omnifood, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
+                    Hello, we're Food factory, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
                 </p>
             </div>
             
@@ -123,88 +123,42 @@
                     </div>
                     <div class="works-step clearfix">
                         <div>2</div>
-                        <p>Order your delicious meal using our mobile app or website. Or you can even call us!</p>
+                        <p>Order your delicious meal using our  website. Or you can even call us!</p>
                     </div>
                     <div class="works-step clearfix">
                         <div>3</div>
                         <p>Enjoy your meal after less than 20 minutes. See you the next time!</p>
                     </div>
                     
-                    <a href="#" class="btn-app"><img src="resources/img/download-app.svg" alt="App Store Button"></a>
-                    <a href="#" class="btn-app"><img src="resources/img/download-app-android.png" alt="Play Store Button"></a>
-                </div>
+                   </div>
             </div>
         </section>
         
-        <section class="section-cities" id="cities">
-            <div class="row">
-                <h2>We're currently in these cities</h2>
+         <section class="section-cities" id="cities">
+          <div class="row">
+                <h2>We're currently in these location</h2>
             </div>
-            <div class="row js--wp-3">
-                <div class="col span-1-of-4 box">
-                    <img src="resources/img/lisbon-3.jpg" alt="Lisbon">
-                    <h3>Lisbon</h3>
+            <div class="row js--wp-3" >
+                  <div class="col span-1-of-3 box">
+                    
+                </div>
+                 <div class="col span-1-of-3 box">
+                    <img src="resources/img/lisbon-3.png" alt="Lisbon">
+                    <div style="margin-left: 25%">
                     <div class="city-feature">
                         <i class="ion-ios-person icon-small"></i>
-                        1600+ happy eaters
+                        Food Factory
+                    </div>
+                     <div class="city-feature">
+                        <i class="fa fa-phone-square icon-small" aria-hidden="true"></i>
+                        9993387574
                     </div>
                     <div class="city-feature">
-                        <i class="ion-ios-star icon-small"></i>
-                        60+ top chefs
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-social-twitter icon-small"></i>
-                        <a href="#">@omnifood_lx</a>
-                    </div>
+                        <h4>  &nbsp;&nbsp;<i class="fa fa-map-marker-alt" style="font-size: 20px;color: #e67e22"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ViewLocation.jsp" class="text2 signup" style="color: #e67e22">View location on map</a>
+                        </h4> </div>
                 </div>
-                <div class="col span-1-of-4 box">
-                    <img src="resources/img/san-francisco.jpg" alt="San Francisco">
-                    <h3>San Francisco</h3>
-                    <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        3700+ happy eaters
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-ios-star icon-small"></i>
-                        160+ top chefs
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-social-twitter icon-small"></i>
-                        <a href="#">@omnifood_sf</a>
-                    </div>
-                </div>
-                <div class="col span-1-of-4 box">
-                    <img src="resources/img/berlin.jpg" alt="Berlin">
-                    <h3>Berlin</h3>
-                    <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        2300+ happy eaters
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-ios-star icon-small"></i>
-                        110+ top chefs
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-social-twitter icon-small"></i>
-                        <a href="#">@omnifood_berlin</a>
-                    </div>
-                </div>
-                <div class="col span-1-of-4 box">
-                    <img src="resources/img/london.jpg" alt="London">
-                    <h3>London</h3>
-                    <div class="city-feature">
-                        <i class="ion-ios-person icon-small"></i>
-                        1200+ happy eaters
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-ios-star icon-small"></i>
-                        50+ top chefs
-                    </div>
-                    <div class="city-feature">
-                        <i class="ion-social-twitter icon-small"></i>
-                        <a href="#">@omnifood_london</a>
-                    </div>
-                </div>
+                 <div class="col span-1-of-3 box">
+                 </div></div>
             </div>
             
         </section>

@@ -56,16 +56,26 @@ public class planSelectServlet extends HttpServlet {
     public boolean insert(String phone,String cat){
         int up=0;
         try {
+            int del=0;
             Timestamp t=getT(cat);
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             Connection con = DBConnection.getConnection();
             PreparedStatement ps2=con.prepareStatement("delete from customer_plan where contact_no="+phone);
-            PreparedStatement ps=con.prepareStatement("insert into customer_plan(contact_no,plan,planSelectDate,planDueDate) values(?,?,?,?)");
-           
+            PreparedStatement ps=con.prepareStatement("insert into customer_plan(contact_no,plan,planSelectDate,planDueDate,delivery) values(?,?,?,?,?)");
+           if(cat.equals("Premium")){
+               del=30;
+           }
+           else if(cat.equals("Pro")){
+               del=3;
+           }
+           else if(cat.equals("Starter")){
+               del=1;
+           }
             ps.setString(1,phone);
            ps.setString(2,cat);
             ps.setTimestamp(3, timestamp);
            ps.setTimestamp(4, t);
+           ps.setInt(5, del);
             ps2.executeUpdate();
             up=ps.executeUpdate();
             

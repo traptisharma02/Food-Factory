@@ -20,7 +20,7 @@
     else{ 
     
 %> 
- <div class="limiter" style="height: 225%">
+ <div class="limiter" >
       <div  class="container-login"  >
           <div class="wrap-login logwrap" style="margin-top: 20%;width:80%">
           <div class="text-center">
@@ -44,8 +44,6 @@
                     <th>Contact-No.</th>
                     <th>Address</th>
                     <th></th>
-                    <th></th>
-                    <th></th>
                 </tr>
             </tfoot>
             <tbody>
@@ -54,7 +52,7 @@
              try{
                      PreparedStatement ps2=con.prepareStatement("delete from customer_plan where planDueDate < curdate()");
                      
-                    PreparedStatement ps=con.prepareStatement("select user.name,user.contact_no,user.address from (( customer_plan join user on user.contact_no=customer_plan.contact_no) join meal on meal.category=customer_plan.plan) where user.payment_status=1 and customer_plan.delivery>0 and customer_plan.last_delivery<curdate();");
+                    PreparedStatement ps=con.prepareStatement("select user.name,user.contact_no from (( customer_plan join user on user.contact_no=customer_plan.contact_no) join meal on meal.category=customer_plan.plan) where user.payment_status=1 and customer_plan.delivery>0 and customer_plan.last_delivery<curdate();");
                      ps2.executeUpdate();
                     ResultSet rs=ps.executeQuery();
                     while(rs.next()){
@@ -62,7 +60,13 @@
                 <tr>
                     <td><%=rs.getString("name") %></td>
                     <td><%=rs.getString("contact_no") %></td>
-                    <td><%=rs.getString("address") %></td>
+                    <td>
+                         <div class="col span-2-of-3">
+                            <div class="text-center w-full b2">
+                                <h4><a href="ViewLocation.jsp?cont=<%=rs.getString("contact_no")%>" class="text2 signup" style="color: #e67e22"><i class="fa fa-map-marker-alt" style="font-size: 20px"></i>&nbsp;&nbsp;View location on map</a></h4>
+                              </div>
+                        </div>
+                    </td>
                      <td><div class="text-center w-full b1">
                      <a href="ViewDetails.jsp?cont=<%=rs.getString("contact_no")%>" class="bt3">View Details</a></div></td>
                     <td><div class="text-center w-full b1">

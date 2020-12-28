@@ -18,7 +18,7 @@
     else{ 
      Connection con=DBConnection.getConnection();
 %>
- <div class="limiter" style="height: 225%">
+ <div class="limiter" >
       <div  class="container-login"  >
           <div class="wrap-login logwrap" style="margin-top: 20%;width:80%">
           <div class="text-center">

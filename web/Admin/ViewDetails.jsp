@@ -24,7 +24,7 @@
 %>
  <%@include file="header3.jsp" %>
          
-        <div class="limiter" style="height: 165%">
+        <div class="limiter" >
       <div  class="container-login"  >
           <div class="wrap-login " >
          
@@ -45,6 +45,7 @@
                     ResultSet rs=ps.executeQuery();
                     while(rs.next()){
                 %>
+                
                   <div class="row">
                         <div class="col span-1-of-3">
                             <label for="Name">Name</label>
@@ -69,14 +70,7 @@
                             <input type="text" name="email" id="email" placeholder="Enter Email" value="<%=rs.getString("email_id")%>" readonly="">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>Address</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <textarea name="address" placeholder="Your Address" id="address" readonly=""><%=rs.getString("address")%></textarea>
-                        </div>
-                    </div>
+                   
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="planc">Plan</label>
@@ -118,14 +112,23 @@
                         </div>
 
                     </div>
-                </form>
+                         <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Address</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <div class="text-center w-full b2">
+                                <h4><a href="ViewLocation.jsp?cont=<%=rs.getString("contact_no")%>" class="text2 signup" style="color: #e67e22"><i class="fa fa-map-marker-alt" style="font-size: 20px"></i>&nbsp;&nbsp;View location on map</a></h4>
+                              </div>
+                        </div>
+                    </form> </div>
                 <%
                         }
                         con.close();
                         }catch(Exception e){e.printStackTrace();}
                     %> 
             </div>
-            </div></div></div>
+            </div></div>
    <%
        }
    %>
