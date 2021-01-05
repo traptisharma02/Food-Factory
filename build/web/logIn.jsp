@@ -38,6 +38,6 @@
     </div>
     </div>
         <!-- Footer -->
-      
+</header>
  <%@include file="footer.jsp" %>
  

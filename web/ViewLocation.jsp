@@ -10,7 +10,7 @@
            <div class="container">
                 <h2 >Our location</h2>
           </div>
-              <iframe width="100%" height="500" src="https://maps.google.com/maps?q=sectorA-1 scheme no. 136, indore&output=embed"></iframe>
+              <iframe width="100%" height="500" src="https://maps.google.com/maps?q=s22.776978589280937, 75.89001601615249&output=embed"></iframe>
         </div>
       </div>
     </div>
