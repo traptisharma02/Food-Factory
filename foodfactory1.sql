@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 28, 2020 at 01:25 PM
+-- Generation Time: Jan 30, 2021 at 12:23 PM
 -- Server version: 5.7.30-log
 -- PHP Version: 5.4.16
 
@@ -65,13 +65,13 @@ CREATE TABLE IF NOT EXISTS `customer_plan` (
 
 INSERT INTO `customer_plan` (`contact_no`, `plan`, `planSelectDate`, `planDueDate`, `delivery`, `last_delivery`) VALUES
 ('7788992211', 'Premium', '2020-12-21 18:31:58', '2021-01-20 18:31:58', 30, '0000-00-00 00:00:00'),
-('9876543122', 'Starter', '2020-12-28 07:41:09', '2020-12-29 07:41:09', 1, '0000-00-00 00:00:00'),
 ('7654321090', 'Pro', '2020-12-28 07:42:11', '2021-01-27 07:42:11', 3, '0000-00-00 00:00:00'),
 ('9988221133', 'Premium', '2020-12-28 07:43:29', '2021-01-27 07:43:29', 30, '0000-00-00 00:00:00'),
-('9988770066', 'Starter', '2020-12-28 07:44:02', '2020-12-29 07:44:02', 1, '0000-00-00 00:00:00'),
 ('9341645321', 'Pro', '2020-12-28 07:45:18', '2021-01-27 07:45:18', 3, '0000-00-00 00:00:00'),
 ('8889997776', 'Premium', '2020-12-28 07:46:08', '2021-01-27 07:46:08', 30, '0000-00-00 00:00:00'),
-('9321123456', 'Pro', '2020-12-28 07:46:43', '2021-01-27 07:46:43', 3, '0000-00-00 00:00:00');
+('9321123456', 'Pro', '2020-12-28 07:46:43', '2021-01-27 07:46:43', 3, '0000-00-00 00:00:00'),
+('9876543122', 'Premium', '2020-12-29 08:53:06', '2021-01-28 08:53:06', 30, '0000-00-00 00:00:00'),
+('9876543223', 'Pro', '2021-01-02 06:29:59', '2021-02-01 06:29:59', 3, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -122,6 +122,32 @@ INSERT INTO `meal` (`category`, `price`, `validity`, `inter`, `orderTiming`, `ac
 ('Premium', '399', '/month', '30 ', 'Order 24/7', 'Access to newest creation   ', 'Free delivery'),
 ('Pro', '149', '/month', '3', 'Order 24/7', 'Access to newest creation  ', 'Free delivery'),
 ('Starter', '19', '/meal', '1', 'Order from 8 am to 12 pm', 'No access to newest creation  ', 'Free delivery');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `month_expense`
+--
+
+CREATE TABLE IF NOT EXISTS `month_expense` (
+  `contact_no` varchar(11) NOT NULL,
+  `date1` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `restaurent` varchar(50) NOT NULL,
+  `comment` varchar(50) NOT NULL,
+  `price` int(10) NOT NULL,
+  PRIMARY KEY (`contact_no`,`date1`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `month_expense`
+--
+
+INSERT INTO `month_expense` (`contact_no`, `date1`, `restaurent`, `comment`, `price`) VALUES
+('9876543122', '2021-01-04 18:30:00', 'sayaji', 'good food', 2223),
+('9876543122', '2021-01-11 18:30:00', 'FORTUNE', 'no comment', 1234),
+('9876543122', '2021-01-18 18:30:00', 'gurukripa', 'good food', 1234),
+('9876543122', '2021-01-28 12:28:30', 'marriot', 'no comment', 1230),
+('9876543122', '2021-01-28 12:44:54', 'SAYAJI', 'good food', 4230);
 
 -- --------------------------------------------------------
 
@@ -204,6 +230,7 @@ INSERT INTO `user` (`name`, `contact_no`, `email_id`, `password`, `latitude`, `l
 ('sashi', '9341645321', 'shashi@gmail.com', '000000', 22.7713, 75.8917, 1, 0),
 ('trisha', '9876543122', 'traptitrisha@gmail.com', 'trapti', 22.7674, 75.8927, 1, 1),
 ('sakshi', '9876543219', 'sakshi@gmail.com', 'sakshi12', 22.7562, 75.8882, 0, 0),
+('ankit', '9876543223', 'agrawalankit150@gmail.com', 'ankit', 22.9734, 22.9734, 1, 0),
 ('hiteshi', '9876678999', 'hiteshi@gmail.com', 'hiteshi12', 22.754, 75.9041, 0, 0),
 ('aanand', '9911882277', 'aanand@gmail.com', 'aanand12', 22.7115, 75.883, 0, 0),
 ('pallavi', '9988221133', 'pallavi@gmail.com', 'pallavi12', 22.7456, 75.8695, 1, 0),

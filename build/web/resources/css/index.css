@@ -249,10 +249,9 @@ nav a{
     transition: background-color 0.2s ease;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid white;
-    background-color: transparent;
+   background-color: transparent;
     padding: 14px 10px;
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -270,9 +269,7 @@ nav span{
     text-decoration: none;
 }
 
-nav a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
+
 
 .btn {
   position: relative;

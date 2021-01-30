@@ -56,8 +56,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  <!-- <body onload=\"checkSecure();\"> -->\n");
       out.write("  <!-- Top Nav Bar -->\n");
       out.write("  <nav>\n");
+      out.write("      <span>\n");
       out.write("    <a onclick=\"openNav()\">&#9776;</a>\n");
-      out.write("    <span>Where to eat</span>\n");
+      out.write("      </span>\n");
+      out.write("      <span><a href=\"../index.jsp\" class=\"nav12\">Home</a></span>\n");
+      out.write("      <span><a href=\"Recipe2.jsp\" class=\"nav12\">Recipe    </a></span>\n");
+      out.write("    \n");
       out.write("  </nav>\n");
       out.write("  <!-- Top Nav Bar Ends -->\n");
       out.write("\n");

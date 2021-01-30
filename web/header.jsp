@@ -89,10 +89,10 @@
                     <a href="index.jsp"> <img src="resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>
                     <ul class="main-nav js--main-nav">
-                        <li><a href="index.jsp#features">Food delivery</a></li>
                         <li><a href="index.jsp#works">How it works</a></li>
                         <li><a href="index.jsp#cities">Our locations</a></li>
                         <li><a href="index.jsp#plans">Select Plan</a></li>
+                        <li><a href="New Features/index.jsp">View more sites plans</a></li>
                         <li><a href="signup.jsp">Sign Up</a></li>
                         
                     </ul>

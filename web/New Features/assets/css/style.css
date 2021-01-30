@@ -226,15 +226,13 @@ a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-nav a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
+
 a:hover {
     color: #cf6d17;
    
 }
 .openBtn{
-    font-size: 30px;
+    font-size: 16pt;
     color: white;
     margin-left: 3%;
 }
@@ -248,7 +246,7 @@ nav a {
     text-decoration: none;
      background-color: transparent;
     padding: 14px 10px;
-    font-size: 6px;
+    font-size: 14px;
     cursor: pointer;
 }
 

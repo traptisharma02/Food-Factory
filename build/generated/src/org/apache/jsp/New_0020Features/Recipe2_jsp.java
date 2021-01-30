@@ -55,6 +55,7 @@ public final class Recipe2_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <!-- Bootstrap CSS CDN -->\n");
       out.write("    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\">\n");
       out.write("    <!-- Our Custom CSS -->\n");
+      out.write("    \n");
       out.write("    <link rel=\"stylesheet\" href=\"assets/css/style.css\">\n");
       out.write("    <link rel=\"stylesheet\" type=\"text/css\" media=\"screen\" href=\"assets/css/style.css\"/>\n");
       out.write("    <!-- Scrollbar Custom CSS -->\n");
@@ -77,8 +78,9 @@ public final class Recipe2_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\n");
       out.write("    \n");
       out.write(" <nav>\n");
-      out.write("    <a onclick=\"openNav()\" class='openBtn'>&#9776;</a>\n");
-      out.write("    <span>Where to eat</span>\n");
+      out.write("     <span> <a onclick=\"openNav()\" class='openBtn nav12'>&#9776;</a></span>\n");
+      out.write("     <span><a href=\"../index.jsp\" class=\"nav12\">Home</a></span>\n");
+      out.write("     <span><a href=\"index.jsp\" class=\"nav12\">Restaurents</a></span>\n");
       out.write("  </nav>    <!-- Sidebar  -->\n");
       out.write("        <nav id=\"sidebar\">\n");
       out.write("             <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;</a><br><br>\n");
@@ -139,14 +141,14 @@ public final class Recipe2_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div id=\"content\">\n");
       out.write("            <img class=\"col-md-12\" class=\"logo\" src = \"assets/images/Logo.jpg\">\n");
       out.write("          \n");
-      out.write("\n");
-      out.write("            <div class=\"container\" style=\"margin-left: 20%\">    \n");
+      out.write("            <center>\n");
+      out.write("            <div class=\"container\" style=\"width: 95%\">    \n");
       out.write("                             \n");
       out.write("\n");
       out.write("                    <!-- recipe cards will be displayed here -->\n");
       out.write("               \n");
       out.write("            </div>\n");
-      out.write("\n");
+      out.write("            </center>\n");
       out.write("\n");
       out.write("       \n");
       out.write("\n");

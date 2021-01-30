@@ -10,6 +10,8 @@
         <link rel="stylesheet" type="text/css" href="../vendors/css/animate.css">
         <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="../resources/css/login.css">
+        <link rel="stylesheet" type="text/css" href="../resources/css/approve.css">
+        
         <link rel="stylesheet" type="text/css" href="../resources/css/queries.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
         <title>Omnifood</title>
@@ -55,10 +57,10 @@
                     <a href="welcome.jsp"> <img src="../resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="../resources/img/logo.png" alt="Omnifood logo" class="logo-black"></a>
                     <ul class="main-nav js--main-nav">
-                        <li><a href="welcome.jsp#plans">Select new plan</a></li>
                         <li><a href="welcome.jsp#ViewDetail">View your details</a></li>
                          <li><a href="welcome.jsp#Uplan">Plans you selected</a></li>
-                          <li><a href="feedback.jsp">Feedback</a></li>
+                         <li><a href="feedback.jsp">Feedback</a></li>
+                         <li><a href="MonthlySpending1.jsp">Monthly Expense</a></li>
                          <li><a href="../LogoutServlet">logout</a></li>
                     </ul>
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>

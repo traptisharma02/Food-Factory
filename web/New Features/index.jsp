@@ -13,8 +13,12 @@
   <!-- <body onload="checkSecure();"> -->
   <!-- Top Nav Bar -->
   <nav>
+      <span>
     <a onclick="openNav()">&#9776;</a>
-    <span>Where to eat</span>
+      </span>
+      <span><a href="../index.jsp" class="nav12">Home</a></span>
+      <span><a href="Recipe2.jsp" class="nav12">Recipe    </a></span>
+    
   </nav>
   <!-- Top Nav Bar Ends -->
 

@@ -12,6 +12,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
+    
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <!-- Scrollbar Custom CSS -->
@@ -34,8 +35,9 @@
 <body>
     
  <nav>
-    <a onclick="openNav()" class='openBtn'>&#9776;</a>
-    <span>Where to eat</span>
+     <span> <a onclick="openNav()" class='openBtn nav12'>&#9776;</a></span>
+     <span><a href="../index.jsp" class="nav12">Home</a></span>
+     <span><a href="index.jsp" class="nav12">Restaurents</a></span>
   </nav>    <!-- Sidebar  -->
         <nav id="sidebar">
              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><br><br>

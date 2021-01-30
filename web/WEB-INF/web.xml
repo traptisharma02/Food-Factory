@@ -48,6 +48,18 @@
         <servlet-name>ChangeProfileServlet</servlet-name>
         <servlet-class>ChangeProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangeTransaction</servlet-name>
+        <servlet-class>ChangeTransaction</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddTransaction</servlet-name>
+        <servlet-class>AddTransaction</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MonthlyEmail1</servlet-name>
+        <servlet-class>MonthlyEmail1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegDataServlet</servlet-name>
         <url-pattern>/RegDataServlet</url-pattern>
@@ -95,6 +107,18 @@
     <servlet-mapping>
         <servlet-name>ChangeProfileServlet</servlet-name>
         <url-pattern>/ChangeProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeTransaction</servlet-name>
+        <url-pattern>/ChangeTransaction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTransaction</servlet-name>
+        <url-pattern>/AddTransaction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MonthlyEmail1</servlet-name>
+        <url-pattern>/MonthlyEmail1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
