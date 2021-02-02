@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="../resources/css/queries.css">
         <link rel="stylesheet" type="text/css" href="../resources/css/approve.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-        <title>Omnifood</title>
+       <title>Food factory</title>
         
            <link href="../vendors/css/bootstrap.min.css" rel="stylesheet">
 

@@ -14,7 +14,7 @@
         
         <link rel="stylesheet" type="text/css" href="../resources/css/queries.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-        <title>Omnifood</title>
+        <title>Food factory</title>
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
         <link rel="apple-touch-icon" sizes="57x57" href="../resources/favicons/apple-touch-icon-57x57.png">
